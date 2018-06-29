@@ -12,6 +12,7 @@
     <title>SeedQi - 博客园</title>
     <script src="~/Script/jquery-2.2.0.min.js"></script>
     <script src="~/js/MyBlog.js"></script>
+    <link href="~/Css/blog-common.css" rel="stylesheet" />
     <script>    
         
     </script>
@@ -246,7 +247,16 @@
                     <div id="blog-calendar" style="display:none"></div>
                     <div id="leftcontentcontainer">
                         <div id="blog-sidecolumn">
-                            <div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+                            <div id="sidebar_search" class="sidebar-block">
+                                <div id="sidebar_search" class="mySearch">
+                                    <h3 class="catListTitle">搜索</h3>
+                                    <div id="sidebar_search_box">
+                                        <div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="sidebar_shortcut" class="sidebar-block">
                                 <div class="catListLink">
                                     <h3 class="catListTitle">常用链接</h3>
                                     <ul>

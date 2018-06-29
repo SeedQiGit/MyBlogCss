@@ -89,6 +89,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\blog-common.css" />
+    <Content Include="Css\MyCss.css" />
     <Content Include="Global.asax" />
     <Content Include="js\MyBlog.js" />
     <Content Include="Script\blog-common.js" />
