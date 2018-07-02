@@ -91,9 +91,10 @@
   <ItemGroup>
     <Content Include="Css\blog-common.css" />
     <Content Include="Css\BlogCssCommon.css" />
-    <Content Include="Css\BlogCssDetail.css" />
+    <Content Include="Css\BlogCssHeader.css" />
     <Content Include="Css\Example.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\FishAndSea220.jpg" />
     <Content Include="js\MyBlog.js" />
     <Content Include="Script\blog-common.js" />
     <Content Include="Script\jquery-2.2.0.min.js" />

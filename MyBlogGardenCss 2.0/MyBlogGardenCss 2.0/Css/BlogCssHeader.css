@@ -1,0 +1,110 @@
+﻿
+#header {
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 2;
+   
+}
+
+#navigator {
+    background-color: #169FE6;
+    height: 55px;
+    width: 100%;
+    border: none;
+    clear: both;
+    position: relative;
+    border: 1px solid #138cca;
+}
+
+    #navigator ul {
+        width: 70%;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 55px;
+        padding: 0
+    }
+
+#navList li {
+    list-style-type: none;
+    display: inline-block;
+    float: left;
+    margin-right: 30px ;
+    line-height: 55px;
+}
+
+    #navList li a {
+        display: inline-block;
+        color: #fff;
+        padding: 0 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #navList a:link {
+        color: #fff;
+    }
+
+
+    #navList a:hover {
+        text-decoration: none;
+        background-color: #fff;
+        color: #169fe6
+    }
+ 
+
+
+.blogStats {
+    display: none
+}
+
+
+
+#blogTitle {
+    height: 220px;
+    clear: both;
+    width: 1460px;
+    margin: 0 auto;
+    position: relative;
+    background-image: url('../img/FishAndSea220.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    user-select: none;
+}
+
+    #blogTitle h1 {
+        font-size: 38px;
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        user-select: none;
+        text-align: center;
+        position: relative;
+        top: 28px;
+        left: -40px;
+        font-weight: bold;
+    }
+
+    #blogTitle h2 {
+        width: 600px;
+        position: relative;
+        height: 75px;
+        line-height: 75px;
+        color: #ffffff;
+        user-select: none;
+        font-weight: normal;
+        top: 30px;
+        left: 480px;
+        font-size: 22px;
+        font-weight: bold;
+        cursor: default;
+    }
+
+    #blogTitle h1 a {
+        color: #fff
+    }
+
+#blogLogo {
+    float: right
+}
