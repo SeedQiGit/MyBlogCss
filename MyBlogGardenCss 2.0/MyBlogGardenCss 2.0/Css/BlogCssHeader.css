@@ -9,20 +9,21 @@
 }
 
 #navigator {
-    background-color: #169FE6;
-    height: 55px;
+    background-color: rgba(0,0,0,.5);
+    /*background: #F0EEF5;
+    opacity: 0.5;*/
+    height: 50px;
     width: 100%;
     border: none;
     clear: both;
     position: relative;
-    border: 1px solid #138cca;
 }
 
     #navigator ul {
         width: 70%;
         max-width: 1200px;
         margin: 0 auto;
-        height: 55px;
+        height: 50px;
         padding: 0
     }
 
@@ -31,10 +32,11 @@
     display: inline-block;
     float: left;
     margin-right: 30px ;
-    line-height: 55px;
+    line-height: 50px;
 }
 
     #navList li a {
+        opacity: 1;
         display: inline-block;
         color: #fff;
         padding: 0 20px;
@@ -47,29 +49,29 @@
     }
 
 
-    #navList a:hover {
-        text-decoration: none;
-        background-color: #fff;
-        color: #169fe6
-    }
+#navList a:hover {
+    text-decoration: none;
+    /*background: rgba(255,255,255,.3);*/
+    background: rgba( 22,159,230,.6);
+    /*background-color: #fff;*/
+    /*color: #169fe6*/
+}
  
-
-
 .blogStats {
     display: none
 }
 
-
-
-#blogTitle {
-    height: 220px;
+/*#blogTitle {
+    height: 279px;
     clear: both;
     width: 1460px;
+    clear: both;
     margin: 0 auto;
     position: relative;
-    background-image: url('../img/FishAndSea220.jpg');
+    background-image: url('../img/FishAndSea279.jpg');
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: contain;
     user-select: none;
 }
 
@@ -81,7 +83,7 @@
         user-select: none;
         text-align: center;
         position: relative;
-        top: 28px;
+        top: 46px;
         left: -40px;
         font-weight: bold;
     }
@@ -94,7 +96,7 @@
         color: #ffffff;
         user-select: none;
         font-weight: normal;
-        top: 30px;
+        top: 64px;
         left: 480px;
         font-size: 22px;
         font-weight: bold;
@@ -107,4 +109,5 @@
 
 #blogLogo {
     float: right
-}
+}*/
+

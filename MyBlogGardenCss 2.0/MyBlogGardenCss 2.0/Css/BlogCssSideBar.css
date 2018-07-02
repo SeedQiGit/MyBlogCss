@@ -1,0 +1,19 @@
+﻿
+
+#sideBar {
+    width: 20%;
+    margin-left: 8%;
+    float: left;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: visible;
+    word-break: break-all
+}
+
+#sideBarMain {
+}
+
+#blog-news {
+    overflow: visible;
+    margin-bottom: 20px
+}

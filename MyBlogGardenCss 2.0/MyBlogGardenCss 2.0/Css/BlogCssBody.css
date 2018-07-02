@@ -1,0 +1,142 @@
+﻿
+
+.postDesc, .c_b_p_desc_readmore {
+    display: none;
+}
+
+.fixed-body-background {
+    background-image: url(../img/short.jpeg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -2
+}
+
+#main {
+    width: 80%;
+    margin: 30px auto;
+    clear: both
+}
+
+#mainContent {
+    background: none;
+    float: left;
+    overflow: visible;
+    text-overflow: ellipsis;
+    width: 70%;
+    word-break: break-all
+}
+
+    #mainContent .forFlow {
+        float: none;
+        margin: 0  ;
+        width: 100%
+    }
+
+.day {
+    background: rgba(255,255,255,.8);
+    /*margin: 5rem auto;*/
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    line-height: 3.2rem
+}
+
+.day .postTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+
+.postTitle {
+    width: 100%;
+    line-height: 3.2rem;
+    padding-top: 0.3rem;
+    text-align: center;
+    font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+    color: #fff;
+}
+
+.postTitle a {
+    color: rgba(0,0,0,.7);
+    font-weight: 600;
+    line-height: 2.4rem;
+    font-size: 2.3rem;
+    letter-spacing: .1rem;
+}
+
+.c_b_p_desc {
+    padding: 1rem 2rem 1rem;
+    text-align: justify;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    word-break: break-all;
+    word-break: break-word
+}
+
+.dayTitle {
+    /*position:absolute;
+    top:*/
+    padding: 0 2rem;
+    display: block;
+    height: 2.6rem;
+    line-height: 2.4rem;
+    width: 100%;
+    text-decoration: none;
+    font-size: 1.8rem;
+}
+.dayTitle a {
+    color: rgba(0,0,0,.7);
+}
+
+
+
+.post-time {
+    display: block;
+    height: 2.6rem;
+    line-height: 2.4rem;
+    width: 100%;
+    text-decoration: uppercase;
+    font-size: 1.8rem
+}
+
+    .post-time time {
+        width: 14rem;
+        letter-spacing: .2rem;
+        margin: 0 auto;
+        border-bottom: 1px dashed #e3e3e3
+    }
+
+
+.post-meta {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+    .post-meta .post-tags {
+        margin-top: .5rem
+    }
+
+        .post-meta .post-tags a {
+            color: #fff;
+            padding: .2rem .5rem;
+            background: rgba(0,0,0,.4)
+        }
+
+            .post-meta .post-tags a:hover {
+                color: #efefef;
+                background: rgba(0,0,0,.2)
+            }
+
+
+
+
+
+
