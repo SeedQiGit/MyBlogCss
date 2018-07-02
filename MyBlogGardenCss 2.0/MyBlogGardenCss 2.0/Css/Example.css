@@ -330,8 +330,8 @@ html {
 }
 
 body {
-    font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
-    ,"Helvetica Neue",\5FAE\8F6F\96C5\9ED1,Tohoma;
+    font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif
+    ,"Helvetica Neue",Tohoma;
     font-size: 1.4rem;
     line-height: 1.6em;
     color: #3A4145;
