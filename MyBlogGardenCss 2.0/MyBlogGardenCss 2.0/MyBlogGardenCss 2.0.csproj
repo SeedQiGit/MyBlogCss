@@ -94,8 +94,11 @@
     <Content Include="Css\BlogCssCommon.css" />
     <Content Include="Css\BlogCssHeader.css" />
     <Content Include="Css\BlogCssSideBar.css" />
+    <Content Include="Css\CodeExampleDark.css" />
+    <Content Include="Css\CodeExampleSimple.css" />
     <Content Include="Css\Example.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\1139419-20180524153513539-2115352320.jpg" />
     <Content Include="img\original.jpeg" />
     <Content Include="img\short.jpeg" />
     <Content Include="js\MyBlog.js" />
@@ -117,6 +120,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Test2.cshtml" />
+    <Content Include="Views\Home\MainContent.cshtml" />
+    <Content Include="Views\Home\SimpleContent.cshtml" />
+    <Content Include="Views\Home\SimpleContentOrg.cshtml" />
+    <Content Include="Views\Home\MainContentOrg.cshtml" />
+    <Content Include="Views\Home\CodeContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

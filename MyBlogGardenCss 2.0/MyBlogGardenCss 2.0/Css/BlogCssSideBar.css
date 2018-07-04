@@ -13,8 +13,6 @@
 #sideBarMain {
     font-size: 1.5rem;
 }
-
-
     #sideBarMain a {
         color: #3A4145;
         font-weight:500;
@@ -35,14 +33,59 @@
        
     }
 
+.newsItem h3 {
+    display:none;
+}
 #sidebar_toptags li, #sidebar_postcategory li {
     margin: 10px 0;
+    padding:3px 2px;
     background: rgba(240,238,245,0.8);
     border-radius: 5px;
     text-align: center;
-    width:80%;
+    width: 80%;
+}
+#sidebar_toptags a, #sidebar_postcategory a {
+    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+   
+}
+    #sidebar_toptags a:hover, #sidebar_postcategory a:hover {
+        font-weight: 500;
+    }
+
+#sidebar_toptags li:hover, #sidebar_postcategory li:hover {
+    background-color: #FFF;
+    color: rgba(17,17,17,.5);
+    text-shadow: 1px 1px 3px #3d3d3d;
 }
 
+
+#widget_my_zzk input[type="text"] {
+    border: 1.5px solid #fff;
+    height: 2.6rem;
+    margin-right:5px;
+}
+
+#btnZzk {
+    color: #3A4145;
+    background-color: rgba(240,238,245,1);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 2px solid #F0EEF5;
+    width: 6rem;
+    height: 3rem;
+    border-radius: 5px;
+}
+    #btnZzk:hover {
+        background-color: #1B9AF7;
+        color: #FFF;
+ 
+    }
+
+    #btnZzk:active {
+        background-color: #dbdbdb;
+        border: 2px solid #dbdbdb;
+    }
 
 #blog-news {
     overflow: visible;

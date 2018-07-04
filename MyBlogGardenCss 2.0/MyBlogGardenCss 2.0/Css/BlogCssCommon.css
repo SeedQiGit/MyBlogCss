@@ -1,5 +1,9 @@
 ﻿@charset "UTF-8";
 
+::selection {
+    background: #bcc4c7;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
     display: block
 }

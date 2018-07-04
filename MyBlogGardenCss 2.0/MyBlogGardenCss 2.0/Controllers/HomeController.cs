@@ -8,8 +8,27 @@ namespace MyBlogGardenCss_2._0.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult CodeContent()
+        {
+            return View();
+        }
+        public ActionResult SimpleContent()
+        {
+            return View();
+        }
+        public ActionResult SimpleContentOrg()
+        {
+            return View();
+        }
+        public ActionResult MainContentOrg()
+        {
+            return View();
+        }
+        public ActionResult MainContent()
         {
             return View();
         }

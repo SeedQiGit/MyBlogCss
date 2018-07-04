@@ -1,0 +1,1392 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.cnblogs.com/qixinbo/p/9193258.html -->
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园</title>
+    <script src="~/Script/jquery-2.2.0.min.js"></script>
+    <script src="~/js/MyBlog.js"></script>
+    <link href="~/Css/blog-common.css" rel="stylesheet" />
+    <link href="~/Css/BlogCssCommon.css" rel="stylesheet" />
+    <link href="~/Css/BlogCssHeader.css" rel="stylesheet" />
+    <link href="~/Css/BlogCssBody.css" rel="stylesheet" />
+    <link href="~/Css/BlogCssSideBar.css" rel="stylesheet" />
+</head>
+<body>
+    <a name="top"></a>
+
+    <!--done-->
+    <div id="home">
+        <div id="header">
+            <div id="blogTitle">
+                <a id="lnkBlogLogo" href="http://www.cnblogs.com/qixinbo/"><img id="blogLogo" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/logo.gif" alt="返回主页"></a>
+
+                <!--done-->
+                <h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/qixinbo/">SeedQi</a></h1>
+                <h2>用心完成每一篇文字，真心对待每一天生活。</h2>
+
+
+
+
+            </div><!--end: blogTitle 博客的标题和副标题 -->
+            <div id="navigator">
+
+                <ul id="navList">
+                    <li></li>
+                    <li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/qixinbo/">首页</a></li>
+                    <li></li>
+                    <li></li>
+                    <li>
+                        <!---->
+                    </li>
+                    <li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+                </ul>
+                <div class="blogStats">
+
+                    <div id="blog_stats">
+                        <span id="stats_post_count">随笔 - 64&nbsp; </span>
+                        <span id="stats_article_count">文章 - 0&nbsp; </span>
+                        <span id="stats-comment_count">评论 - 0</span>
+                    </div>
+
+                </div><!--end: blogStats -->
+            </div><!--end: navigator 博客导航栏 -->
+        </div><!--end: header 头部 -->
+
+        <div id="main">
+            <div id="mainContent">
+                <div class="forFlow">
+
+                    <div id="post_detail">
+                        <!--done-->
+                        <div id="topics">
+                            <div class="post">
+                                <h1 class="postTitle">
+                                    <a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/qixinbo/p/9193258.html">设计模式DesignPattern（六）行为型模式（下）</a>
+                                </h1>
+                                <div class="clear"></div>
+                                <div class="postBody">
+                                    <div id="cnblogs_post_body" class="blogpost-body">
+                                        <h3><span style="font-family: &#39;Microsoft YaHei&#39;;">状态模式</span></h3>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 每个对象都有其对应的状态，而每个状态又对应一些相应的行为，如果某个对象有多个状态时，那么就会对应很多的行为。那么对这些状态的判断和根据状态完成的行为，就会导致多重条件语句，并且如果添加一种新的状态时，需要更改之前现有的代码。这样的设计显然违背了开闭原则，状态模式正是用来解决这样的问题的。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">状态模式——允许一个对象在其内部状态改变时自动改变其行为，对象看起来就像是改变了它的类。具体的结构图如下所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171025963-430665758.png" alt=""></span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">示例代码</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">就以银行账户的状态来实现下状态者模式。银行账户根据余额可分为RedState、SilverState和GoldState。这些状态分别代表透支账号，新开账户和标准账户。账号余额在【-100.0，0.0】范围表示处于RedState状态，账号余额在【0.0，1000.0】范围表示处于SilverState，账号在【1000.0， 100000.0】范围表示处于GoldState状态。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">状态者模式涉及以下三个角色：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">Account类：维护一个State类的一个实例，该实例标识着当前对象的状态。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">State类：抽象状态类，定义了一个具体状态类需要实现的行为约定。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">SilveStater、GoldState和RedState类：具体状态类，实现抽象状态类的每个行为。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">下面以这样的一个场景实现下状态者模式，具体实现代码如下所示：</span></p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;173f0ff5-9545-4813-9b32-ab798849bfa1&#39;)">
+                                            <img id="code_img_closed_173f0ff5-9545-4813-9b32-ab798849bfa1" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_173f0ff5-9545-4813-9b32-ab798849bfa1" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;173f0ff5-9545-4813-9b32-ab798849bfa1&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_173f0ff5-9545-4813-9b32-ab798849bfa1" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> StatePatternSample
+{
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Account
+    {
+        </span><span style="color: #0000ff;">public</span> State State {<span style="color: #0000ff;">get</span>;<span style="color: #0000ff;">set</span><span style="color: #000000;">;}
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Owner { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+</span><span style="color: #008000;">//</span><span style="color: #008000;">owner字段是不改变的，而State这个内部的类是根据不同的存款额而更改。</span>
+                                                <span style="color: #0000ff;">public</span> Account(<span style="color: #0000ff;">string</span><span style="color: #000000;"> owner)
+        {
+            </span><span style="color: #0000ff;">this</span>.Owner =<span style="color: #000000;"> owner;
+</span><span style="color: #008000;">//</span><span style="color: #008000;">默认提供的是0元账户，账户级别是SilverState</span>
+                                                <span style="color: #0000ff;">this</span>.State = <span style="color: #0000ff;">new</span> SilverState(<span style="color: #800080;">0.0</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> Balance { <span style="color: #0000ff;">get</span> {<span style="color: #0000ff;">return</span> State.Balance; }} <span style="color: #008000;">//</span><span style="color: #008000;"> 余额
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 存钱 存取钱的操作都是调用ACCount的类，然后account调用state对应的存取钱操作，由于state的类型是已知的，所以会有对应的操作。</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> Deposit(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            State.Deposit(amount);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">存款金额为 {0:C}——</span><span style="color: #800000;">"</span><span style="color: #000000;">, amount);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">账户余额为 =:{0:C}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">.Balance);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">账户状态为: {0}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">.State.GetType().Name);
+            Console.WriteLine();
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 取钱</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> Withdraw(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            State.Withdraw(amount);
+             Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">取款金额为 {0:C}——</span><span style="color: #800000;">"</span><span style="color: #000000;">,amount);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">账户余额为 =:{0:C}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">.Balance);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">账户状态为: {0}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">.State.GetType().Name);
+            Console.WriteLine();
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 获得利息</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> PayInterest()
+        {
+            State.PayInterest();
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">Interest Paid --- </span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">账户余额为 =:{0:C}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">.Balance);
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">账户状态为: {0}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">.State.GetType().Name);
+            Console.WriteLine();
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象状态类</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> State
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> Properties</span>
+                                                <span style="color: #0000ff;">public</span> Account Account { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> Balance { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span>; } <span style="color: #008000;">//</span><span style="color: #008000;"> 余额</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> Interest { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span>; } <span style="color: #008000;">//</span><span style="color: #008000;"> 利率</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> LowerLimit { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span>; } <span style="color: #008000;">//</span><span style="color: #008000;"> 下限</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> UpperLimit { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span>; } <span style="color: #008000;">//</span><span style="color: #008000;"> 上限</span>
+
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span> Deposit(<span style="color: #0000ff;">double</span> amount); <span style="color: #008000;">//</span><span style="color: #008000;"> 存款</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span> Withdraw(<span style="color: #0000ff;">double</span> amount); <span style="color: #008000;">//</span><span style="color: #008000;"> 取钱</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span> PayInterest(); <span style="color: #008000;">//</span><span style="color: #008000;"> 获得的利息</span>
+<span style="color: #000000;">    }
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Red State意味着Account透支了</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> RedState : State
+    {
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> RedState(State state)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> Initialize</span>
+                                                <span style="color: #0000ff;">this</span>.Balance =<span style="color: #000000;"> state.Balance;
+            </span><span style="color: #0000ff;">this</span>.Account =<span style="color: #000000;"> state.Account;
+            Interest </span>= <span style="color: #800080;">0.00</span><span style="color: #000000;">;
+            LowerLimit </span>= -<span style="color: #800080;">100.00</span><span style="color: #000000;">;
+            UpperLimit </span>= <span style="color: #800080;">0.00</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 存款</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> Deposit(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            Balance </span>+=<span style="color: #000000;"> amount;
+            StateChangeCheck();
+        }
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 取钱</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> Withdraw(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">没有钱可以取了！</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> PayInterest()
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 没有利息</span>
+<span style="color: #000000;">        }
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> StateChangeCheck()
+        {
+            </span><span style="color: #0000ff;">if</span> (Balance &gt;<span style="color: #000000;"> UpperLimit)
+            {
+                Account.State </span>= <span style="color: #0000ff;">new</span> SilverState(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+            }
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Silver State意味着没有利息得</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> SilverState :State
+    {
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> SilverState(State state)
+            : </span><span style="color: #0000ff;">this</span><span style="color: #000000;">(state.Balance, state.Account)
+        { 
+        }
+
+        </span><span style="color: #0000ff;">public</span> SilverState(<span style="color: #0000ff;">double</span><span style="color: #000000;"> balance, Account account)
+        {
+            </span><span style="color: #0000ff;">this</span>.Balance =<span style="color: #000000;"> balance;
+            </span><span style="color: #0000ff;">this</span>.Account =<span style="color: #000000;"> account;
+            Interest </span>= <span style="color: #800080;">0.00</span><span style="color: #000000;">;
+            LowerLimit </span>= <span style="color: #800080;">0.00</span><span style="color: #000000;">;
+            UpperLimit </span>= <span style="color: #800080;">1000.00</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> Deposit(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            Balance </span>+=<span style="color: #000000;"> amount;
+            StateChangeCheck();
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> Withdraw(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            Balance </span>-=<span style="color: #000000;"> amount;
+            StateChangeCheck();
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> PayInterest()
+        {
+            Balance </span>+= Interest *<span style="color: #000000;"> Balance;
+            StateChangeCheck();
+        }
+
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> StateChangeCheck()
+        {
+            </span><span style="color: #0000ff;">if</span> (Balance &lt;<span style="color: #000000;"> LowerLimit)
+            {
+                Account.State </span>= <span style="color: #0000ff;">new</span> RedState(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (Balance &gt;<span style="color: #000000;"> UpperLimit)
+            {
+                Account.State </span>= <span style="color: #0000ff;">new</span> GoldState(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+            }
+        }     
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> Gold State意味着有利息状态</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> GoldState : State
+    {
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> GoldState(State state)
+        {
+            </span><span style="color: #0000ff;">this</span>.Balance =<span style="color: #000000;"> state.Balance;
+            </span><span style="color: #0000ff;">this</span>.Account =<span style="color: #000000;"> state.Account;
+            Interest </span>= <span style="color: #800080;">0.05</span><span style="color: #000000;">;
+            LowerLimit </span>= <span style="color: #800080;">1000.00</span><span style="color: #000000;">;
+            UpperLimit </span>= <span style="color: #800080;">1000000.00</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 存钱</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> Deposit(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            Balance </span>+=<span style="color: #000000;"> amount;
+            StateChangeCheck();
+        }
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 取钱</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> Withdraw(<span style="color: #0000ff;">double</span><span style="color: #000000;"> amount)
+        {
+            Balance </span>-=<span style="color: #000000;"> amount;
+            StateChangeCheck();
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> PayInterest()
+        {
+            Balance </span>+= Interest *<span style="color: #000000;"> Balance;
+            StateChangeCheck();
+        }
+
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> StateChangeCheck()
+        {
+            </span><span style="color: #0000ff;">if</span> (Balance &lt; <span style="color: #800080;">0.0</span><span style="color: #000000;">)
+            {
+                Account.State </span>= <span style="color: #0000ff;">new</span> RedState(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (Balance &lt;<span style="color: #000000;"> LowerLimit)
+            {
+                Account.State </span>= <span style="color: #0000ff;">new</span> SilverState(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+            }
+        }
+    }
+
+    </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> App
+    {
+        </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 开一个新的账户</span>
+            Account account = <span style="color: #0000ff;">new</span> Account(<span style="color: #800000;">"</span><span style="color: #800000;">Learning Hard</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 进行交易
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 存钱</span>
+            account.Deposit(<span style="color: #800080;">1000.0</span><span style="color: #000000;">);
+            account.Deposit(</span><span style="color: #800080;">200.0</span><span style="color: #000000;">);
+            account.Deposit(</span><span style="color: #800080;">600.0</span><span style="color: #000000;">);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 付利息</span>
+<span style="color: #000000;">            account.PayInterest();
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 取钱</span>
+            account.Withdraw(<span style="color: #800080;">2000.00</span><span style="color: #000000;">);
+            account.Withdraw(</span><span style="color: #800080;">500.00</span><span style="color: #000000;">);
+            
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 等待用户输入</span>
+<span style="color: #000000;">            Console.ReadKey();
+        }
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">状态者模式示例代码</span>
+                                        </div>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">应用状态者模式完善中介者模式方案</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面利用观察者模式和状态者模式来完善中介者模式，具体的实现代码如下所示：</span></p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;639c6916-a0af-4640-98f2-41d03b2b75f4&#39;)">
+                                            <img id="code_img_closed_639c6916-a0af-4640-98f2-41d03b2b75f4" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_639c6916-a0af-4640-98f2-41d03b2b75f4" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;639c6916-a0af-4640-98f2-41d03b2b75f4&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_639c6916-a0af-4640-98f2-41d03b2b75f4" class="cnblogs_code_hide">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象牌友类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> AbstractCardPartner
+{
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> MoneyCount { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> AbstractCardPartner()
+    {
+        MoneyCount </span>= <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> Count, AbstractMediator mediator);
+}
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 牌友A类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ParterA : AbstractCardPartner
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 依赖与抽象中介者对象</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> Count, AbstractMediator mediator)
+    {
+        mediator.ChangeCount(Count);
+    }
+}
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 牌友B类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ParterB : AbstractCardPartner
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 依赖与抽象中介者对象</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> Count, AbstractMediator mediator)
+    {
+        mediator.ChangeCount(Count);
+    }
+}
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象状态类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> State
+{
+    </span><span style="color: #0000ff;">protected</span><span style="color: #000000;"> AbstractMediator meditor;
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> count);
+}
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> A赢状态类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> AWinState : State
+{
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> AWinState(AbstractMediator concretemediator)
+    {
+        </span><span style="color: #0000ff;">this</span>.meditor =<span style="color: #000000;"> concretemediator;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> count)
+    {
+        </span><span style="color: #0000ff;">foreach</span> (AbstractCardPartner p <span style="color: #0000ff;">in</span><span style="color: #000000;"> meditor.list)
+        {
+            ParterA a </span>= p <span style="color: #0000ff;">as</span><span style="color: #000000;"> ParterA;
+            </span><span style="color: #008000;">//</span> 
+                                                <span style="color: #0000ff;">if</span> (a != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                a.MoneyCount </span>+=<span style="color: #000000;"> count;
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                p.MoneyCount </span>-=<span style="color: #000000;"> count;
+            }
+        }
+    }
+}
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> B赢状态类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> BWinState : State
+{
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> BWinState(AbstractMediator concretemediator)
+    {
+        </span><span style="color: #0000ff;">this</span>.meditor =<span style="color: #000000;"> concretemediator;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> count)
+    {
+        </span><span style="color: #0000ff;">foreach</span> (AbstractCardPartner p <span style="color: #0000ff;">in</span><span style="color: #000000;"> meditor.list)
+        {
+            ParterB b </span>= p <span style="color: #0000ff;">as</span><span style="color: #000000;"> ParterB;
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 如果集合对象中时B对象，则对B的钱添加</span>
+                                                <span style="color: #0000ff;">if</span> (b != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                b.MoneyCount </span>+=<span style="color: #000000;"> count;
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                p.MoneyCount </span>-=<span style="color: #000000;"> count;
+            }
+        }
+    }
+}
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 初始化状态类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> InitState : State
+{
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> InitState()
+    {
+        Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">游戏才刚刚开始,暂时还有玩家胜出</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> count)
+    {
+        </span><span style="color: #008000;">//</span> 
+                                                <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+    }
+}
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象中介者类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> AbstractMediator
+{
+    </span><span style="color: #0000ff;">public</span> List&lt;AbstractCardPartner&gt; list = <span style="color: #0000ff;">new</span> List&lt;AbstractCardPartner&gt;<span style="color: #000000;">();
+    </span><span style="color: #0000ff;">public</span> State State { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> AbstractMediator(State state)
+    {
+        </span><span style="color: #0000ff;">this</span>.State =<span style="color: #000000;"> state;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Enter(AbstractCardPartner partner)
+    {
+        list.Add(partner);
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Exit(AbstractCardPartner partner)
+    {
+        list.Remove(partner);
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> ChangeCount(<span style="color: #0000ff;">int</span><span style="color: #000000;"> count)
+    {
+        State.ChangeCount(count);
+    }
+}
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 具体中介者类</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MediatorPater : AbstractMediator
+{
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> MediatorPater(State initState)
+        : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(initState)
+    { }
+}
+
+</span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Program
+{
+    </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+    {
+        AbstractCardPartner A </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ParterA();
+        AbstractCardPartner B </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ParterB();
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 初始钱</span>
+        A.MoneyCount = <span style="color: #800080;">20</span><span style="color: #000000;">;
+        B.MoneyCount </span>= <span style="color: #800080;">20</span><span style="color: #000000;">;
+
+        AbstractMediator mediator </span>= <span style="color: #0000ff;">new</span> MediatorPater(<span style="color: #0000ff;">new</span><span style="color: #000000;"> InitState());
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> A,B玩家进入平台进行游戏</span>
+<span style="color: #000000;">        mediator.Enter(A);
+        mediator.Enter(B);
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> A赢了</span>
+        mediator.State = <span style="color: #0000ff;">new</span><span style="color: #000000;"> AWinState(mediator);
+        mediator.ChangeCount(</span><span style="color: #800080;">5</span><span style="color: #000000;">);
+        Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">A 现在的钱是：{0}</span><span style="color: #800000;">"</span>, A.MoneyCount);<span style="color: #008000;">//</span><span style="color: #008000;"> 应该是25</span>
+        Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">B 现在的钱是：{0}</span><span style="color: #800000;">"</span>, B.MoneyCount); <span style="color: #008000;">//</span><span style="color: #008000;"> 应该是15
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> B 赢了</span>
+        mediator.State = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BWinState(mediator);
+        mediator.ChangeCount(</span><span style="color: #800080;">10</span><span style="color: #000000;">);
+        Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">A 现在的钱是：{0}</span><span style="color: #800000;">"</span>, A.MoneyCount);<span style="color: #008000;">//</span><span style="color: #008000;"> 应该是25</span>
+        Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">B 现在的钱是：{0}</span><span style="color: #800000;">"</span>, B.MoneyCount); <span style="color: #008000;">//</span><span style="color: #008000;"> 应该是15</span>
+<span style="color: #000000;">        Console.Read();
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">应用状态者模式完善中介者模式方案</span>
+                                        </div>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">状态者模式的应用场景</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在以下情况下可以考虑使用状态者模式。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A当一个对象状态转换的条件表达式过于复杂时可以使用状态者模式。把状态的判断逻辑转移到表示不同状态的一系列类中，可以把复杂的判断逻辑简单化。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B当一个对象行为取决于它的状态，并且它需要在运行时刻根据状态改变它的行为时，就可以考虑使用状态者模式。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">状态者模式的优缺点</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 状态者模式的主要优点是：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">将状态判断逻辑每个状态类里面，可以简化判断的逻辑。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">当有新的状态出现时，可以通过添加新的状态类来进行扩展，扩展性好。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">状态者模式的主要缺点是：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">如果状态过多的话，会导致有非常多的状态类，加大了开销。</span></p>
+                                        <hr>
+                                        <p>&nbsp;</p>
+                                        <h3><span style="font-family: &#39;Microsoft YaHei&#39;;">策略模式</span></h3>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在现实生活中，中国的所得税，分为企业所得税、外商投资企业或外商企业所得税和个人所得税，针对于这3种所得税，每种所计算的方式不同，个人所得税有个人所得税的计算方式，而企业所得税有其对应计算方式。如果不采用策略模式来实现这样一个需求的话，我们会定义一个所得税类，该类有一个属性来标识所得税的类型，并且有一个计算税收的CalculateTax()方法，在该方法体内需要对税收类型进行判断，通过if-else语句来针对不同的税收类型来计算其所得税。这样的实现确实可以解决这个场景，但是这样的设计不利于扩展，如果系统后期需要增加一种所得税时，此时不得不回去修改CalculateTax方法来多添加一个判断语句，这样明白违背了“开放——封闭”原则。此时，我们可以考虑使用策略模式来解决这个问题，既然税收方法是这个场景中的变化部分，此时自然可以想到对税收方法进行抽象，这也是策略模式实现的精髓所在。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">策略模式是对算法的包装，是把使用算法的责任和算法本身分割开，委派给不同的对象负责。策略模式通常把一系列的算法包装到一系列的策略类里面。用一句话慨括策略模式就是——“将每个算法封装到不同的策略类中，使得它们可以互换”。下面是策略模式的结构图：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171300366-1283913938.png" alt=""></span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">策略模式示例代码</span></h4>
+                                        <p>&nbsp;</p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;8578ff2b-08e7-47e7-86ad-2e3add34a3dd&#39;)">
+                                            <img id="code_img_closed_8578ff2b-08e7-47e7-86ad-2e3add34a3dd" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_8578ff2b-08e7-47e7-86ad-2e3add34a3dd" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;8578ff2b-08e7-47e7-86ad-2e3add34a3dd&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_8578ff2b-08e7-47e7-86ad-2e3add34a3dd" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> StrategyPattern
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 所得税计算策略</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> ITaxStragety
+    {
+        </span><span style="color: #0000ff;">double</span> CalculateTax(<span style="color: #0000ff;">double</span><span style="color: #000000;"> income);
+    }.
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 个人所得税</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> PersonalTaxStrategy : ITaxStragety
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> CalculateTax(<span style="color: #0000ff;">double</span><span style="color: #000000;"> income)
+        {
+            </span><span style="color: #0000ff;">return</span> income * <span style="color: #800080;">0.12</span><span style="color: #000000;">;
+        }
+    }
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 企业所得税</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> EnterpriseTaxStrategy : ITaxStragety
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> CalculateTax(<span style="color: #0000ff;">double</span><span style="color: #000000;"> income)
+        {
+            </span><span style="color: #0000ff;">return</span> (income - <span style="color: #800080;">3500</span>) &gt; <span style="color: #800080;">0</span> ? (income - <span style="color: #800080;">3500</span>) * <span style="color: #800080;">0.045</span> : <span style="color: #800080;">0.0</span><span style="color: #000000;">;
+        }
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> InterestOperation
+    {
+        </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> ITaxStragety m_strategy;
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> InterestOperation(ITaxStragety strategy)
+        {
+            </span><span style="color: #0000ff;">this</span>.m_strategy =<span style="color: #000000;"> strategy;
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> GetTax(<span style="color: #0000ff;">double</span><span style="color: #000000;"> income)
+        {
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> m_strategy.CalculateTax(income);
+        }
+    }
+    </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> App
+    {
+        </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 个人所得税方式</span>
+            InterestOperation operation = <span style="color: #0000ff;">new</span> InterestOperation(<span style="color: #0000ff;">new</span><span style="color: #000000;"> PersonalTaxStrategy());
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">个人支付的税为：{0}</span><span style="color: #800000;">"</span>, operation.GetTax(<span style="color: #800080;">5000.00</span><span style="color: #000000;">));
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 企业所得税</span>
+            operation = <span style="color: #0000ff;">new</span> InterestOperation(<span style="color: #0000ff;">new</span><span style="color: #000000;"> EnterpriseTaxStrategy());
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">企业支付的税为：{0}</span><span style="color: #800000;">"</span>, operation.GetTax(<span style="color: #800080;">50000.00</span><span style="color: #000000;">));
+
+            Console.Read();
+        }
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">策略模式示例代码</span>
+                                        </div>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">策略者模式的应用</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在.NET Framework中也不乏策略模式的应用例子。例如，在.NET中，为集合类型ArrayList和List&lt;T&gt;提供的排序功能，其中实现就利用了策略模式，定义了IComparer接口来对比较算法进行封装，实现IComparer接口的类可以是顺序，或逆序地比较两个对象的大小，具体.NET中的实现可以使用反编译工具查看<a href="http://msdn.microsoft.com/zh-cn/library/234b841s(v=vs.110).aspx" target="http://www.cnblogs.com/zhili/p/_blank">List&lt;T&gt;.Sort(IComparer&lt;T&gt;)</a>的实现。其中List&lt;T&gt;就是承担着环境角色，而IComparer&lt;T&gt;接口承担着抽象策略角色，具体的策略角色就是实现了IComparer&lt;T&gt;接口的类，List&lt;T&gt;类本身实现了存在实现了该接口的类，我们可以自定义继承与该接口的具体策略类。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">策略者模式的适用场景</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在下面的情况下可以考虑使用策略模式：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A一个系统需要动态地在几种算法中选择一种的情况下。那么这些算法可以包装到一个个具体的算法类里面，并为这些具体的算法类提供一个统一的接口。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B如果一个对象有很多的行为，如果不使用合适的模式，这些行为就只好使用多重的if-else语句来实现，此时，可以使用策略模式，把这些行为转移到相应的具体策略类里面，就可以避免使用难以维护的多重条件选择语句，并体现面向对象涉及的概念。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">策略者模式的优缺点</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 策略模式的主要优点有：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A策略类之间可以自由切换。由于策略类都实现同一个接口，所以使它们之间可以自由切换。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B易于扩展。增加一个新的策略只需要添加一个具体的策略类即可，基本不需要改变原有的代码。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">C避免使用多重条件选择语句，充分体现面向对象设计思想。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 策略模式的主要缺点有：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A客户端必须知道所有的策略类，并自行决定使用哪一个策略类。这点可以考虑使用IOC容器和依赖注入的方式来解决，关于IOC容器和依赖注入（Dependency Inject）的文章可以参考：<a href="http://www.cnblogs.com/lusd/articles/3175062.html" target="http://www.cnblogs.com/zhili/p/_blank">IoC 容器和Dependency Injection 模式</a>。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">策略模式会造成很多的策略类。</span></p>
+                                        <hr>
+                                        <p>&nbsp;</p>
+                                        <h3><span style="font-family: &#39;Microsoft YaHei&#39;;">责任链模式</span></h3>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">在现实生活中，有很多请求并不是一个人说了就算的，例如面试时的工资，低于1万的薪水可能技术经理就可以决定了，但是1万~1万5的薪水可能技术经理就没这个权利批准，可能需要请求技术总监的批准。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">责任链模式——某个请求需要多个对象进行处理，从而避免请求的发送者和接收之间的耦合关系。将这些对象连成一条链子，并沿着这条链子传递该请求，直到有对象处理它为止。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">责任链降低了请求端和接收端之间的耦合，使多个对象都有机会处理某个请求。如考试中作弊传纸条，泡妞传情书一般。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">具体结构图如下所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171349485-451486745.png" alt=""></span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">责任链模式的示例代码</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">下面以公司采购东西为例子来实现责任链模式。公司规定，采购架构总价在1万之内，经理级别的人批准即可，总价大于1万小于2万5的则还需要副总进行批准，总价大于2万5小于10万的需要还需要总经理批准，而大于总价大于10万的则需要组织一个会议进行讨论</span></p>
+                                        <p>&nbsp;</p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;be53371c-877b-45ab-98ed-14604283d5f3&#39;)">
+                                            <img id="code_img_closed_be53371c-877b-45ab-98ed-14604283d5f3" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_be53371c-877b-45ab-98ed-14604283d5f3" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;be53371c-877b-45ab-98ed-14604283d5f3&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_be53371c-877b-45ab-98ed-14604283d5f3" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> ChainofResponsibility
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 采购请求</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> PurchaseRequest
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 金额</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">double</span> Amount { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 产品名字</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> ProductName { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">public</span> PurchaseRequest(<span style="color: #0000ff;">double</span> amount, <span style="color: #0000ff;">string</span><span style="color: #000000;"> productName)
+        {
+            Amount </span>=<span style="color: #000000;"> amount;
+            ProductName </span>=<span style="color: #000000;"> productName;
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 审批人,Handler</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Approver
+    {
+        </span><span style="color: #0000ff;">public</span> Approver NextApprover { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Name { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+</span><span style="color: #008000;">//</span><span style="color: #008000;">有点像链表啊！</span>
+                                                <span style="color: #0000ff;">public</span> Approver(<span style="color: #0000ff;">string</span><span style="color: #000000;"> name)
+        {
+            </span><span style="color: #0000ff;">this</span>.Name =<span style="color: #000000;"> name;
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> ProcessRequest(PurchaseRequest request);
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> ConcreteHandler</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Manager : Approver
+    {
+        </span><span style="color: #0000ff;">public</span> Manager(<span style="color: #0000ff;">string</span><span style="color: #000000;"> name)
+            : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(name)
+        { }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> ProcessRequest(PurchaseRequest request)
+        {
+            </span><span style="color: #0000ff;">if</span> (request.Amount &lt; <span style="color: #800080;">10000.0</span><span style="color: #000000;">)
+            {
+                Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">{0}-{1} approved the request of purshing {2}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">, Name, request.ProductName);
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (NextApprover != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                NextApprover.ProcessRequest(request);
+            }
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> ConcreteHandler,副总</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> VicePresident : Approver
+    {
+        </span><span style="color: #0000ff;">public</span> VicePresident(<span style="color: #0000ff;">string</span><span style="color: #000000;"> name)
+            : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(name)
+        { 
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> ProcessRequest(PurchaseRequest request)
+        {
+            </span><span style="color: #0000ff;">if</span> (request.Amount &lt; <span style="color: #800080;">25000.0</span><span style="color: #000000;">)
+            {
+                Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">{0}-{1} approved the request of purshing {2}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">, Name, request.ProductName);
+            }
+            </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (NextApprover != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                NextApprover.ProcessRequest(request);
+            }
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> ConcreteHandler，总经理</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> President :Approver
+    {
+        </span><span style="color: #0000ff;">public</span> President(<span style="color: #0000ff;">string</span><span style="color: #000000;"> name)
+            : </span><span style="color: #0000ff;">base</span><span style="color: #000000;">(name)
+        { }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> ProcessRequest(PurchaseRequest request)
+        {
+            </span><span style="color: #0000ff;">if</span> (request.Amount &lt; <span style="color: #800080;">100000.0</span><span style="color: #000000;">)
+            {
+                Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">{0}-{1} approved the request of purshing {2}</span><span style="color: #800000;">"</span>, <span style="color: #0000ff;">this</span><span style="color: #000000;">, Name, request.ProductName);
+            }
+            </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+            {
+                Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">Request需要组织一个会议讨论</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            }
+        }
+    }
+
+    </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Program
+    {
+        </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            PurchaseRequest requestTelphone </span>= <span style="color: #0000ff;">new</span> PurchaseRequest(<span style="color: #800080;">4000.0</span>, <span style="color: #800000;">"</span><span style="color: #800000;">Telphone</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            PurchaseRequest requestSoftware </span>= <span style="color: #0000ff;">new</span> PurchaseRequest(<span style="color: #800080;">10000.0</span>, <span style="color: #800000;">"</span><span style="color: #800000;">Visual Studio</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            PurchaseRequest requestComputers </span>= <span style="color: #0000ff;">new</span> PurchaseRequest(<span style="color: #800080;">40000.0</span>, <span style="color: #800000;">"</span><span style="color: #800000;">Computers</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            Approver manager </span>= <span style="color: #0000ff;">new</span> Manager(<span style="color: #800000;">"</span><span style="color: #800000;">LearningHard</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            Approver Vp </span>= <span style="color: #0000ff;">new</span> VicePresident(<span style="color: #800000;">"</span><span style="color: #800000;">Tony</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            Approver Pre </span>= <span style="color: #0000ff;">new</span> President(<span style="color: #800000;">"</span><span style="color: #800000;">BossTom</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 设置责任链</span>
+            manager.NextApprover =<span style="color: #000000;"> Vp;
+            Vp.NextApprover </span>=<span style="color: #000000;"> Pre;
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 处理请求</span>
+<span style="color: #000000;">            manager.ProcessRequest(requestTelphone);
+            manager.ProcessRequest(requestSoftware);
+            manager.ProcessRequest(requestComputers);
+            Console.ReadLine();
+        }
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">责任链模式的示例代码</span>
+                                        </div>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">责任链模式的适用场景</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在以下场景中可以考虑使用责任链模式：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A一个系统的审批需要多个对象才能完成处理的情况下，例如请假系统等。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B代码中存在多个if-else语句的情况下，此时可以考虑使用责任链模式来对代码进行重构。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">责任链模式的优缺点</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 责任链模式的优点不言而喻，主要有以下点：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A降低了请求的发送者和接收者之间的耦合。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B把多个条件判定分散到各个处理类中，使得代码更加清晰，责任更加明确。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 责任链模式也具有一定的缺点，如：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A在找到正确的处理对象之前，所有的条件判定都要执行一遍，当责任链过长时，可能会引起性能的问题</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B可能导致某个请求不被处理。</span></p>
+                                        <hr>
+                                        <p>&nbsp;</p>
+                                        <h3><span style="font-family: &#39;Microsoft YaHei&#39;;">备忘录模式</span></h3>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">生活中的手机通讯录备忘录，操作系统备份点，数据库备份等都是备忘录模式的应用。备忘录模式是在不破坏封装的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样以后就可以把该对象恢复到原先的状态。具体的结构图如下所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171446629-1220567499.png" alt=""></span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">Memento 是遗物 纪念品的意思。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 备忘录模式中主要有三类角色：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">发起人角色：记录当前时刻的内部状态，负责创建和恢复备忘录数据。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">备忘录角色：负责存储发起人对象的内部状态，在进行恢复时提供给发起人需要的状态。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">管理者角色：负责保存备忘录对象。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">备忘录模式示例代码</span></h4>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;6c93a389-78fe-4b2f-ac8c-d2fe176e2b0e&#39;)">
+                                            <img id="code_img_closed_6c93a389-78fe-4b2f-ac8c-d2fe176e2b0e" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_6c93a389-78fe-4b2f-ac8c-d2fe176e2b0e" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;6c93a389-78fe-4b2f-ac8c-d2fe176e2b0e&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_6c93a389-78fe-4b2f-ac8c-d2fe176e2b0e" class="cnblogs_code_hide">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 联系人</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ContactPerson
+{
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Name { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> MobileNum { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+}
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 发起人</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MobileOwner
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 发起人需要保存的内部状态</span>
+                                                <span style="color: #0000ff;">public</span> List&lt;ContactPerson&gt; ContactPersons { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+
+    </span><span style="color: #0000ff;">public</span> MobileOwner(List&lt;ContactPerson&gt;<span style="color: #000000;"> persons)
+    {
+        ContactPersons </span>=<span style="color: #000000;"> persons;
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 创建备忘录，将当期要保存的联系人列表导入到备忘录中 </span>
+                                                <span style="color: #0000ff;">public</span><span style="color: #000000;"> ContactMemento CreateMemento()
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 这里也应该传递深拷贝，new List方式传递的是浅拷贝，
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 因为ContactPerson类中都是string类型,所以这里new list方式对ContactPerson对象执行了深拷贝
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 如果ContactPerson包括非string的引用类型就会有问题，所以这里也应该用序列化传递深拷贝</span>
+                                                <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> ContactMemento(<span style="color: #0000ff;">new</span> List&lt;ContactPerson&gt;(<span style="color: #0000ff;">this</span><span style="color: #000000;">.ContactPersons));
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 将备忘录中的数据备份导入到联系人列表中</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> RestoreMemento(ContactMemento memento)
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 下面这种方式是错误的，因为这样传递的是引用，
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 则删除一次可以恢复，但恢复之后再删除的话就恢复不了.因为这次保存的地址是备忘录里面的地址！！再次删除会导致备忘录的地址也删除了！（相当于第二次删除把备忘录内部的数据也删除了）
+   </span><span style="color: #008000;">//</span><span style="color: #008000;"> 所以应该传递contactPersonBack的深拷贝，深拷贝可以使用序列化来完成</span>
+                                                <span style="color: #0000ff;">this</span>.ContactPersons =<span style="color: #000000;"> memento.contactPersonBack;
+}
+
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Show()
+{
+    Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">联系人列表中有{0}个人，他们是:</span><span style="color: #800000;">"</span><span style="color: #000000;">, ContactPersons.Count);
+    </span><span style="color: #0000ff;">foreach</span> (ContactPerson p <span style="color: #0000ff;">in</span><span style="color: #000000;"> ContactPersons)
+    {
+        Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">姓名: {0} 号码为: {1}</span><span style="color: #800000;">"</span><span style="color: #000000;">, p.Name, p.MobileNum);
+    }
+}
+
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 备忘录</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ContactMemento
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 保存发起人的内部状态</span>
+                                                <span style="color: #0000ff;">public</span> List&lt;ContactPerson&gt;<span style="color: #000000;"> contactPersonBack;
+
+    </span><span style="color: #0000ff;">public</span> ContactMemento(List&lt;ContactPerson&gt;<span style="color: #000000;"> persons)
+    {
+        contactPersonBack </span>=<span style="color: #000000;"> persons;
+    }
+}
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 管理角色</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Caretaker
+{
+    </span><span style="color: #0000ff;">public</span> ContactMemento ContactM { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+}
+
+</span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Program
+{
+    </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+    {
+        List</span>&lt;ContactPerson&gt; persons = <span style="color: #0000ff;">new</span> List&lt;ContactPerson&gt;<span style="color: #000000;">()
+        {
+            </span><span style="color: #0000ff;">new</span> ContactPerson() { Name= <span style="color: #800000;">"</span><span style="color: #800000;">Learning Hard</span><span style="color: #800000;">"</span>, MobileNum = <span style="color: #800000;">"</span><span style="color: #800000;">123445</span><span style="color: #800000;">"</span><span style="color: #000000;">},
+            </span><span style="color: #0000ff;">new</span> ContactPerson() { Name = <span style="color: #800000;">"</span><span style="color: #800000;">Tony</span><span style="color: #800000;">"</span>, MobileNum = <span style="color: #800000;">"</span><span style="color: #800000;">234565</span><span style="color: #800000;">"</span><span style="color: #000000;">},
+            </span><span style="color: #0000ff;">new</span> ContactPerson() { Name = <span style="color: #800000;">"</span><span style="color: #800000;">Jock</span><span style="color: #800000;">"</span>, MobileNum = <span style="color: #800000;">"</span><span style="color: #800000;">231455</span><span style="color: #800000;">"</span><span style="color: #000000;">}
+        };
+        MobileOwner mobileOwner </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> MobileOwner(persons);
+        mobileOwner.Show();
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 创建备忘录并保存备忘录对象</span>
+        Caretaker caretaker = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Caretaker();
+        caretaker.ContactM </span>=<span style="color: #000000;"> mobileOwner.CreateMemento();
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 更改发起人联系人列表</span>
+        Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">----移除最后一个联系人--------</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        mobileOwner.ContactPersons.RemoveAt(</span><span style="color: #800080;">2</span><span style="color: #000000;">);
+        mobileOwner.Show();
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 恢复到原始状态</span>
+        Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">-------恢复联系人列表------</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        mobileOwner.RestoreMemento(caretaker.ContactM);
+        mobileOwner.Show();
+
+        Console.Read();
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">备忘录模式示例代码</span>
+                                        </div>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">具体的运行结果如下图所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171528419-905474904.png" alt=""></span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 从上图可以看出，刚开始通讯录中有3个联系人，然后移除以后一个后变成2个联系人了，最后恢复原来的联系人列表后，联系人列表中又恢复为3个联系人了。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 上面代码只是保存了一个还原点，即备忘录中只保存了3个联系人的数据，但是，如果想备份多个还原点怎么办呢？即恢复到3个人后，又想恢复到前面2个人的状态，这时候可能你会想，这样没必要啊，到时候在删除不就好了。但是如果在实际应用中，可能我们发了很多时间去创建通讯录中只有2个联系人的状态，恢复到3个人的状态后，发现这个状态时错误的，还是原来2个人的状态是正确的，难道我们又去花之前的那么多时间去重复操作吗？这显然不合理，如果就思考，能不能保存多个还原点呢？保存多个还原点其实很简单，只需要保存多个备忘录对象就可以了。具体实现代码如下所示：</span></p>
+                                        <p>&nbsp;</p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;13eadc5b-9a1f-41ec-8ec1-bf18cb52e7fe&#39;)">
+                                            <img id="code_img_closed_13eadc5b-9a1f-41ec-8ec1-bf18cb52e7fe" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt="" style="display: inline;"><img id="code_img_opened_13eadc5b-9a1f-41ec-8ec1-bf18cb52e7fe" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;13eadc5b-9a1f-41ec-8ec1-bf18cb52e7fe&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_13eadc5b-9a1f-41ec-8ec1-bf18cb52e7fe" class="cnblogs_code_hide" style="display: none;">
+                                                <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> MultipleMementoPattern
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 联系人</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ContactPerson
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> Name { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> MobileNum { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 发起人</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MobileOwner
+    {
+        </span><span style="color: #0000ff;">public</span> List&lt;ContactPerson&gt; ContactPersons { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">public</span> MobileOwner(List&lt;ContactPerson&gt;<span style="color: #000000;"> persons)
+        {
+            ContactPersons </span>=<span style="color: #000000;"> persons;
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 创建备忘录，将当期要保存的联系人列表导入到备忘录中 </span>
+                                                <span style="color: #0000ff;">public</span><span style="color: #000000;"> ContactMemento CreateMemento()
+        {
+             </span><span style="color: #008000;">//</span><span style="color: #008000;"> 这里也应该传递深拷贝，new List方式传递的是浅拷贝，
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 因为ContactPerson类中都是string类型,所以这里new list方式对ContactPerson对象执行了深拷贝
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 如果ContactPerson包括非string的引用类型就会有问题，所以这里也应该用序列化传递深拷贝</span>
+                                                <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> ContactMemento(<span style="color: #0000ff;">new</span> List&lt;ContactPerson&gt;(<span style="color: #0000ff;">this</span><span style="color: #000000;">.ContactPersons));
+        }
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 将备忘录中的数据备份导入到联系人列表中</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> RestoreMemento(ContactMemento memento)
+        {
+            </span><span style="color: #0000ff;">if</span> (memento != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                </span><span style="color: #008000;">//</span><span style="color: #008000;"> 下面这种方式是错误的，因为这样传递的是引用，
+                </span><span style="color: #008000;">//</span><span style="color: #008000;"> 则删除一次可以恢复，但恢复之后再删除的话就恢复不了.
+                </span><span style="color: #008000;">//</span><span style="color: #008000;"> 所以应该传递contactPersonBack的深拷贝，深拷贝可以使用序列化来完成</span>
+                                                <span style="color: #0000ff;">this</span>.ContactPersons =<span style="color: #000000;"> memento.ContactPersonBack;
+            }    
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Show()
+        {
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">联系人列表中有{0}个人，他们是:</span><span style="color: #800000;">"</span><span style="color: #000000;">, ContactPersons.Count);
+            </span><span style="color: #0000ff;">foreach</span> (ContactPerson p <span style="color: #0000ff;">in</span><span style="color: #000000;"> ContactPersons)
+            {
+                Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">姓名: {0} 号码为: {1}</span><span style="color: #800000;">"</span><span style="color: #000000;">, p.Name, p.MobileNum);
+            }
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 备忘录</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ContactMemento
+    {
+        </span><span style="color: #0000ff;">public</span> List&lt;ContactPerson&gt; ContactPersonBack {<span style="color: #0000ff;">get</span>;<span style="color: #0000ff;">set</span><span style="color: #000000;">;}
+        </span><span style="color: #0000ff;">public</span> ContactMemento(List&lt;ContactPerson&gt;<span style="color: #000000;"> persons)
+        {
+            ContactPersonBack </span>=<span style="color: #000000;"> persons;
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 管理角色</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Caretaker
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> 使用多个备忘录来存储多个备份点</span>
+                                                <span style="color: #0000ff;">public</span> Dictionary&lt;<span style="color: #0000ff;">string</span>, ContactMemento&gt; ContactMementoDic { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Caretaker()
+        {
+            ContactMementoDic </span>= <span style="color: #0000ff;">new</span> Dictionary&lt;<span style="color: #0000ff;">string</span>, ContactMemento&gt;<span style="color: #000000;">();
+        }
+    }
+
+    </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Program
+    {
+        </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            List</span>&lt;ContactPerson&gt; persons = <span style="color: #0000ff;">new</span> List&lt;ContactPerson&gt;<span style="color: #000000;">()
+            {
+                </span><span style="color: #0000ff;">new</span> ContactPerson() { Name= <span style="color: #800000;">"</span><span style="color: #800000;">Learning Hard</span><span style="color: #800000;">"</span>, MobileNum = <span style="color: #800000;">"</span><span style="color: #800000;">123445</span><span style="color: #800000;">"</span><span style="color: #000000;">},
+                </span><span style="color: #0000ff;">new</span> ContactPerson() { Name = <span style="color: #800000;">"</span><span style="color: #800000;">Tony</span><span style="color: #800000;">"</span>, MobileNum = <span style="color: #800000;">"</span><span style="color: #800000;">234565</span><span style="color: #800000;">"</span><span style="color: #000000;">},
+                </span><span style="color: #0000ff;">new</span> ContactPerson() { Name = <span style="color: #800000;">"</span><span style="color: #800000;">Jock</span><span style="color: #800000;">"</span>, MobileNum = <span style="color: #800000;">"</span><span style="color: #800000;">231455</span><span style="color: #800000;">"</span><span style="color: #000000;">}
+            };
+
+            MobileOwner mobileOwner </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> MobileOwner(persons);
+            mobileOwner.Show();
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 创建备忘录并保存备忘录对象</span>
+            Caretaker caretaker = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Caretaker();
+            caretaker.ContactMementoDic.Add(DateTime.Now.ToString(), mobileOwner.CreateMemento());
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 更改发起人联系人列表</span>
+            Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">----移除最后一个联系人--------</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            mobileOwner.ContactPersons.RemoveAt(</span><span style="color: #800080;">2</span><span style="color: #000000;">);
+            mobileOwner.Show();
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 创建第二个备份</span>
+            Thread.Sleep(<span style="color: #800080;">1000</span><span style="color: #000000;">);
+            caretaker.ContactMementoDic.Add(DateTime.Now.ToString(), mobileOwner.CreateMemento());
+
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 恢复到原始状态</span>
+            Console.WriteLine(<span style="color: #800000;">"</span><span style="color: #800000;">-------恢复联系人列表,请从以下列表选择恢复的日期------</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            </span><span style="color: #0000ff;">var</span> keyCollection =<span style="color: #000000;"> caretaker.ContactMementoDic.Keys;
+            </span><span style="color: #0000ff;">foreach</span> (<span style="color: #0000ff;">string</span> k <span style="color: #0000ff;">in</span><span style="color: #000000;"> keyCollection)
+            {
+                Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">Key = {0}</span><span style="color: #800000;">"</span><span style="color: #000000;">, k);
+            }
+            </span><span style="color: #0000ff;">while</span> (<span style="color: #0000ff;">true</span><span style="color: #000000;">)
+            {
+                Console.Write(</span><span style="color: #800000;">"</span><span style="color: #800000;">请输入数字,按窗口的关闭键退出:</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                
+                </span><span style="color: #0000ff;">int</span> index = -<span style="color: #800080;">1</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">try</span><span style="color: #000000;">
+                {
+                    index </span>=<span style="color: #000000;"> Int32.Parse(Console.ReadLine());
+                }
+                </span><span style="color: #0000ff;">catch</span><span style="color: #000000;">
+                {
+                    Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">输入的格式错误</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                    </span><span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+                }
+                
+                ContactMemento contactMentor </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;
+                </span><span style="color: #0000ff;">if</span> (index &lt; keyCollection.Count &amp;&amp; caretaker.ContactMementoDic.TryGetValue(keyCollection.ElementAt(index), <span style="color: #0000ff;">out</span><span style="color: #000000;"> contactMentor))
+                {
+                    mobileOwner.RestoreMemento(contactMentor);
+                    mobileOwner.Show();
+                }
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                {
+                    Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">输入的索引大于集合长度！</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+                }
+            }     
+        }
+    }
+}</span></pre>
+                                                <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+                                            </div>
+                                            <span class="cnblogs_code_collapse" style="display: inline;">多个备忘录</span>
+                                        </div>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这样就保存了多个状态，客户端可以选择恢复的状态点，具体运行结果如下所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171609825-713823744.png" alt=""></span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">备忘录模式的适用场景</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在以下情况下可以考虑使用备忘录模式：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">如果系统需要提供回滚操作时，使用备忘录模式非常合适。例如文本编辑器的Ctrl+Z撤销操作的实现，数据库中事务操作。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">备忘录模式的优缺点</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 备忘录模式具有以下优点：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A如果某个操作错误地破坏了数据的完整性，此时可以使用备忘录模式将数据恢复成原来正确的数据。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B备份的状态数据保存在发起人角色之外，这样发起人就不需要对各个备份的状态进行管理。而是由备忘录角色进行管理，而备忘录角色又是由管理者角色管理，符合单一职责原则。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当然，备忘录模式也存在一定的缺点：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">在实际的系统中，可能需要维护多个备份，需要额外的资源，这样对资源的消耗比较严重。</span></p>
+                                        <hr>
+                                        <p>&nbsp;</p>
+                                        <h3><span style="font-family: &#39;Microsoft YaHei&#39;;">访问者模式</span></h3>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">　　访问者模式是封装一些施加于某种数据结构之上的操作。一旦这些操作需要修改的话，接受这个操作的数据结构则可以保存不变。访问者模式适用于数据结构相对稳定的系统， 它把数据结构和作用于数据结构之上的操作之间的耦合度降低，使得操作集合可以相对自由地改变。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">具体结构图如下所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617171626119-1356768854.png" alt=""></span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">这里需要明确一点：访问者模式中具体访问者的数目和具体节点的数目没有任何关系。从访问者的结构图可以看出，访问者模式涉及以下几类角色。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">抽象访问者角色（Vistor）:声明一个或多个访问操作，使得所有具体访问者必须实现的接口。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">具体访问者角色（ConcreteVistor）：实现抽象访问者角色中所有声明的接口。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">抽象节点角色（Element）：声明一个接受操作，接受一个访问者对象作为参数。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">具体节点角色（ConcreteElement）：实现抽象元素所规定的接受操作。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">结构对象角色（ObjectStructure）：节点的容器，可以包含多个不同类或接口的容器。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">访问者模式示例代码</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">不用访问者模式的方式来实现某个场景。具体场景是——现在我想遍历每个元素对象，然后调用每个元素对象的Print方法来打印该元素对象的信息。如果此时不采用访问者模式的话，实现这个场景再简单不过了，具体实现代码如下所示：</span></p>
+                                        <p>&nbsp;</p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;2cfb8cc0-e648-4e7e-a7c4-1e2866be143d&#39;)">
+                                            <img id="code_img_closed_2cfb8cc0-e648-4e7e-a7c4-1e2866be143d" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_2cfb8cc0-e648-4e7e-a7c4-1e2866be143d" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;2cfb8cc0-e648-4e7e-a7c4-1e2866be143d&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_2cfb8cc0-e648-4e7e-a7c4-1e2866be143d" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> DonotUsevistorPattern
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象元素角色</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Element
+    {      
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Print();
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 具体元素A</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ElementA : Element
+    {    
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Print()
+        {
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">我是元素A</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 具体元素B</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ElementB : Element
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Print()
+        {
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">我是元素B</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 对象结构</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ObjectStructure
+    {
+        </span><span style="color: #0000ff;">private</span> ArrayList elements = <span style="color: #0000ff;">new</span><span style="color: #000000;"> ArrayList();
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ArrayList Elements
+        {
+            </span><span style="color: #0000ff;">get</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> elements; }
+        }
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ObjectStructure()
+        {
+            Random ran </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Random();
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">6</span>; i++<span style="color: #000000;">)
+            {
+                </span><span style="color: #0000ff;">int</span> ranNum = ran.Next(<span style="color: #800080;">10</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">if</span> (ranNum &gt; <span style="color: #800080;">5</span><span style="color: #000000;">)
+                {
+                    elements.Add(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ElementA());
+                }
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                {
+                    elements.Add(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ElementB());
+                }
+            }
+        }
+    }
+
+    </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Program
+    {
+        </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            ObjectStructure objectStructure </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ObjectStructure();
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 遍历对象结构中的对象集合，访问每个元素的Print方法打印元素信息</span>
+                                                <span style="color: #0000ff;">foreach</span> (Element e <span style="color: #0000ff;">in</span><span style="color: #000000;"> objectStructure.Elements)
+            {
+                e.Print();
+            }
+
+            Console.Read();
+        }
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">访问者模式示例代码</span>
+                                        </div>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 上面代码很准确了解决了我们刚才提出的场景，但是需求在时刻变化的，如果此时，我除了想打印元素的信息外，还想打印出元素被访问的时间，此时我们就不得不去修改每个元素的Print方法，再加入相对应的输入访问时间的输出信息。这样的设计显然不符合“开-闭”原则，即某个方法操作的改变，会使得必须去更改每个元素类。既然，这里变化的点是操作的改变，而每个元素的数据结构是不变的。所以此时就思考——能不能把操作于元素的操作和元素本身的数据结构分开呢？解开这两者的耦合度，这样如果是操作发现变化时，就不需要去更改元素本身了，但是如果是元素数据结构发现变化，例如，添加了某个字段，这样就不得不去修改元素类了。此时，我们可以使用访问者模式来解决这个问题，即把作用于具体元素的操作由访问者对象来调用。具体的实现代码如下所示：</span></p>
+                                        <div class="cnblogs_code" onclick="cnblogs_code_show(&#39;252b997d-d0bb-4b8e-8a6b-b86ed57fdc7c&#39;)">
+                                            <img id="code_img_closed_252b997d-d0bb-4b8e-8a6b-b86ed57fdc7c" class="code_img_closed" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_252b997d-d0bb-4b8e-8a6b-b86ed57fdc7c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;252b997d-d0bb-4b8e-8a6b-b86ed57fdc7c&#39;,event)" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/ExpandedBlockStart.gif" alt="">
+                                            <div id="cnblogs_code_open_252b997d-d0bb-4b8e-8a6b-b86ed57fdc7c" class="cnblogs_code_hide">
+<pre><span style="color: #0000ff;">namespace</span><span style="color: #000000;"> VistorPattern
+{
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象元素角色</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Element
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Accept(IVistor vistor);
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Print();
+    
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 具体元素A</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ElementA :Element
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Accept(IVistor vistor)
+        {
+            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 调用访问者visit方法</span>
+            vistor.Visit(<span style="color: #0000ff;">this</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Print()
+        {
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">我是元素A</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+    }
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 具体元素B</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ElementB :Element
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Accept(IVistor vistor)
+        {
+            vistor.Visit(</span><span style="color: #0000ff;">this</span><span style="color: #000000;">);
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Print()
+        {
+            Console.WriteLine(</span><span style="color: #800000;">"</span><span style="color: #800000;">我是元素B</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 抽象访问者</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> IVistor 
+    {
+        </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> Visit(ElementA a);
+        </span><span style="color: #0000ff;">void</span><span style="color: #000000;"> Visit(ElementB b);
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 具体访问者</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ConcreteVistor :IVistor
+    {
+        </span><span style="color: #008000;">//</span><span style="color: #008000;"> visit方法而是再去调用元素的Accept方法</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Visit(ElementA a)
+        {
+            a.Print();
+        }
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> Visit(ElementB b)
+        {
+            b.Print();
+        }
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 对象结构</span>
+                                                <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ObjectStructure
+    {
+        </span><span style="color: #0000ff;">private</span> ArrayList elements = <span style="color: #0000ff;">new</span><span style="color: #000000;"> ArrayList();
+
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ArrayList Elements
+        {
+            </span><span style="color: #0000ff;">get</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> elements; }
+        }
+     
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ObjectStructure()
+        {
+            Random ran </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Random();
+            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; <span style="color: #800080;">6</span>; i++<span style="color: #000000;">)
+            {
+                </span><span style="color: #0000ff;">int</span> ranNum = ran.Next(<span style="color: #800080;">10</span><span style="color: #000000;">);
+                </span><span style="color: #0000ff;">if</span> (ranNum &gt; <span style="color: #800080;">5</span><span style="color: #000000;">)
+                {
+                    elements.Add(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ElementA());
+                }
+                </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+                {
+                    elements.Add(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ElementB());
+                }
+            }
+        }
+    }
+
+    </span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Program
+    {
+        </span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> Main(<span style="color: #0000ff;">string</span><span style="color: #000000;">[] args)
+        {
+            ObjectStructure objectStructure </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ObjectStructure();
+            </span><span style="color: #0000ff;">foreach</span> (Element e <span style="color: #0000ff;">in</span><span style="color: #000000;"> objectStructure.Elements)
+            {
+                </span><span style="color: #008000;">//</span><span style="color: #008000;"> 每个元素接受访问者访问</span>
+                e.Accept(<span style="color: #0000ff;">new</span><span style="color: #000000;"> ConcreteVistor());
+            }
+
+            Console.Read();
+        }
+    }
+}</span></pre>
+                                            </div>
+                                            <span class="cnblogs_code_collapse">改进后的示例代码</span>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">　　从上面代码可知，使用访问者模式实现上面场景后，元素Print方法的访问封装到了访问者对象中了（我觉得可以把Print方法封装到具体访问者对象中。），此时客户端与元素的Print方法就隔离开了。此时，如果需要添加打印访问时间的需求时，此时只需要再添加一个具体的访问者类即可。此时就不需要去修改元素中的Print()方法了。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">访问者模式的应用场景</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 每个设计模式都有其应当使用的情况，那让我们看看访问者模式具体应用场景。如果遇到以下场景，此时我们可以考虑使用访问者模式。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A如果系统有比较稳定的数据结构，而又有易于变化的算法时，此时可以考虑使用访问者模式。因为访问者模式使得算法操作的添加比较容易。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B如果一组类中，存在着相似的操作，为了避免出现大量重复的代码，可以考虑把重复的操作封装到访问者中。（当然也可以考虑使用抽象类了）</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">C如果一个对象存在着一些与本身对象不相干，或关系比较弱的操作时，为了避免操作污染这个对象，则可以考虑把这些操作封装到访问者对象中。</span></p>
+                                        <h4><span style="font-family: &#39;Microsoft YaHei&#39;;">访问者模式的优缺点</span></h4>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">访问者模式具有以下优点：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">A访问者模式使得添加新的操作变得容易。如果一些操作依赖于一个复杂的结构对象的话，那么一般而言，添加新的操作会变得很复杂。而使用访问者模式，增加新的操作就意味着添加一个新的访问者类。因此，使得添加新的操作变得容易。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">B访问者模式使得有关的行为操作集中到一个访问者对象中，而不是分散到一个个的元素类中。这点类似与"中介者模式"。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">C访问者模式可以访问属于不同的等级结构的成员对象，而迭代只能访问属于同一个等级结构的成员对象。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">访问者模式也有如下的缺点：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">增加新的元素类变得困难。每增加一个新的元素意味着要在抽象访问者角色中增加一个新的抽象操作，并在每一个具体访问者类中添加相应的具体操作。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;</span></p>
+                                        <h3><span style="font-family: &#39;Microsoft YaHei&#39;;">解释器模式</span></h3>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">解释器模式是一个比较少用的模式，所以我自己也没有对该模式进行深入研究，在生活中，英汉词典的作用就是实现英文和中文互译，这就是解释器模式的应用。</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">解释器模式是给定一种语言，定义它文法的一种表示，并定义一种解释器，这个解释器使用该表示来解释器语言中的句子。具体的结构图如下所示：</span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/1139419-20180617170922230-790440825.png" alt=""></span></p>
+                                        <p><span style="font-family: &#39;Microsoft YaHei&#39;;">&nbsp;</span></p>
+                                    </div><div id="MySignature"></div>
+                                    <div class="clear"></div>
+                                    <div id="blog_post_info_block">
+                                        <div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/qixinbo/category/1086024.html" target="_blank">基本功Foundation</a></div>
+                                        <div id="EntryTag">标签: <a href="http://www.cnblogs.com/qixinbo/tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FDesignPattern/">设计模式DesignPattern</a></div>
+                                        <div id="blog_post_info">
+                                            <div id="green_channel">
+                                                <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(9193258,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+                                                <a id="green_channel_follow" onclick="follow(&#39;9aafb01c-3018-e711-845c-ac853d9f53ac&#39;);" href="javascript:void(0);">关注我</a>
+                                                <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+                                                <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/icon_weibo_24.png" alt=""></a>
+                                                <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/wechat.png" alt=""></a>
+                                            </div>
+                                            <div id="author_profile">
+                                                <div id="author_profile_info" class="author_profile_info">
+                                                    <a href="http://home.cnblogs.com/u/qixinbo/" target="_blank"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/20170516130732.png" class="author_avatar" alt=""></a>
+                                                    <div id="author_profile_detail" class="author_profile_info">
+                                                        <a href="http://home.cnblogs.com/u/qixinbo/">SeedQi</a><br>
+                                                        <a href="http://home.cnblogs.com/u/qixinbo/followees">关注 - 7</a><br>
+                                                        <a href="http://home.cnblogs.com/u/qixinbo/followers">粉丝 - 6</a>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div id="author_profile_honor"></div>
+                                                <div id="author_profile_follow">
+                                                    <a href="javascript:void(0);" onclick="follow(&#39;9aafb01c-3018-e711-845c-ac853d9f53ac&#39;);return false;">+加关注</a>
+                                                </div>
+                                            </div>
+                                            <div id="div_digg">
+                                                <div class="diggit" onclick="votePost(9193258,&#39;Digg&#39;)">
+                                                    <span class="diggnum" id="digg_count">0</span>
+                                                </div>
+                                                <div class="buryit" onclick="votePost(9193258,&#39;Bury&#39;)">
+                                                    <span class="burynum" id="bury_count">0</span>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="diggword" id="digg_tips">
+                                                </div>
+                                            </div>
+                                            <script type="text/javascript">
+                                                currentDiggType = 0;
+                                            </script>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div id="post_next_prev"><a href="http://www.cnblogs.com/qixinbo/p/9120324.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/qixinbo/p/9120324.html" title="发布于2018-06-01 10:03">设计模式DesignPattern（五）行为型模式（上）</a><br></div>
+                                    </div>
+
+
+                                </div>
+                                <div class="postDesc">posted  <span id="post-date">2018-06-17 17:10</span> <a href="http://www.cnblogs.com/qixinbo/">SeedQi</a> 阅读(<span id="post_view_count">8</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=9193258" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/qixinbo/p/9193258.html#" onclick="AddToWz(9193258);return false;">收藏</a></div>
+                            </div>
+                            <script type="text/javascript">var allowComments = true, cb_blogId = 355813, cb_entryId = 9193258, cb_blogApp = currentBlogApp, cb_blogUserGuid = '9aafb01c-3018-e711-845c-ac853d9f53ac', cb_entryCreatedDate = '2018/6/17 17:10:00'; loadViewCount(cb_entryId); var cb_postType = 1;</script>
+
+                        </div><!--end: topics 文章、评论容器-->
+                    </div><a name="!comments"></a><div id="blog-comments-placeholder"></div>
+                    <script type="text/javascript">var commentManager = new blogCommentManager(); commentManager.renderComments(0);</script>
+                    <div id="comment_form" class="commentform">
+                        <a name="commentform"></a>
+                        <div id="divCommentShow"></div>
+                        <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/qixinbo/p/9193258.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/qixinbo/p/9193258.html#top">返回顶部</a></div>
+                        <div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+                        <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+                        <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://cloud.tencent.com/act/campus/group/index?fromSource=gwzcw.1087490.1087490.1087490" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-T2-腾讯云&#39;)">【福利】校园拼团福利，腾讯云1核2G云服务器10元/月！</a><br><a href="http://challenge.xfyun.cn/?ch=bk" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-xfyun&#39;)">【大赛】2018首届“顶天立地”AI开发者大赛</a><br></div>
+                        <div id="opt_under_post"></div>
+                        <div id="cnblogs_c1" class="c_ad_block"><a href="https://dnspod.cloud.tencent.com/act/yearendsales?from=IT&amp;fromSource=gwzcw.1087492.1087492.1087492" target="_blank"><img width="300" height="250" src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/24442-20180702115226334-1185241560.jpg" alt="qcloud0702" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+                        <div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/600852/" target="_blank">映客择路上市始末： A、H的首发估值之争</a><br> ·  <a href="https://news.cnblogs.com/n/600848/" target="_blank">康佳砸下4.5亿出手接盘，新飞能否“新飞”？</a><br> ·  <a href="https://news.cnblogs.com/n/600853/" target="_blank">传Uber与中东竞争对手Careem谈判 或合并业务不再烧钱</a><br> ·  <a href="https://news.cnblogs.com/n/600843/" target="_blank">谷歌网盘app更新：可打开受密码保护的微软Office文档</a><br> ·  <a href="https://news.cnblogs.com/n/600851/" target="_blank">消息称映客IPO定价3.85港元 已超额三倍认购</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+                        <div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img src="./设计模式DesignPattern（六）行为型模式（下） - SeedQi - 博客园_files/TB1gBPhgZLJ8KJjy0FnXXcFDpXa-468-60.jpg" alt="" style="width: 468px; height: 60px;"></a></div>
+                        <div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/522513/" target="_blank">如何提升你的能力？给年轻程序员的几条建议</a><br> ·  <a href="http://kb.cnblogs.com/page/553361/" target="_blank">程序员的那些反模式</a><br> ·  <a href="http://kb.cnblogs.com/page/598335/" target="_blank">程序员的宇宙时间线</a><br> ·  <a href="http://kb.cnblogs.com/page/597877/" target="_blank">突破程序员思维</a><br> ·  <a href="http://kb.cnblogs.com/page/597631/" target="_blank">云、雾和霭计算如何一起工作</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+                        <div id="HistoryToday" class="c_ad_block"></div>
+                     
+                    </div>
+
+
+                </div><!--end: forFlow -->
+            </div><!--end: mainContent 主体内容容器-->
+
+            <div id="sideBar">
+                <div id="sideBarMain">
+
+                    <!--done-->
+                    <div class="newsItem">
+                        <h3 class="catListTitle">公告</h3>
+                        <div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/qixinbo/">SeedQi</a><br>园龄：<a href="https://home.cnblogs.com/u/qixinbo/" title="入园时间：2017-04-03">1年3个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/qixinbo/followers/">6</a><br>关注：<a href="https://home.cnblogs.com/u/qixinbo/followees/">7</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;9aafb01c-3018-e711-845c-ac853d9f53ac&#39;)">+加关注</a></div>
+                        <script>getFollowStatus('9aafb01c-3018-e711-845c-ac853d9f53ac')</script></div></div>
+                        <script type="text/javascript">loadBlogNews();</script>
+                    </div>
+
+                    <div id="blog-calendar" style="display:none"></div>
+                    <script type="text/javascript">loadBlogDefaultCalendar();</script>
+
+                    <div id="leftcontentcontainer">
+                        <div id="blog-sidecolumn">
+                            <div id="sidebar_search" class="sidebar-block">
+                                <div id="sidebar_search" class="mySearch">
+                                    <h3 class="catListTitle">搜索</h3>
+                                    <div id="sidebar_search_box">
+                                        <div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+
+                                    </div>
+                                </div>
+
+                            </div><div id="sidebar_shortcut" class="sidebar-block">
+                                <div class="catListLink">
+                                    <h3 class="catListTitle">常用链接</h3>
+                                    <ul>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/p/" title="我的博客的随笔列表">我的随笔</a></li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/MyComments.html" title="我发表过的评论列表">我的评论</a></li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/RecentComments.html" title="我的博客的评论列表">最新评论</a></li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/" title="我的博客的标签列表">我的标签</a></li>
+                                    </ul>
+                                    <div id="itemListLin_con" style="display:none;">
+                                        <ul></ul>
+                                    </div>
+                                </div>
+                            </div><div id="sidebar_toptags" class="sidebar-block">
+                                <div class="catListTag">
+                                    <h3 class="catListTitle">我的标签</h3>
+                                    <ul>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/%E3%80%8AJavascript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E3%80%8B%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">《Javascript高级程序设计》阅读记录</a>(7)</li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FDesignPattern/">设计模式DesignPattern</a>(6)</li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>(6)</li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/SQL%E5%A4%AF%E5%AE%9E%E5%9F%BA%E7%A1%80/">SQL夯实基础</a>(5)</li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/C%23%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF/">C#进阶之路</a>(5)</li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/C%23%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">C#面向对象</a>(4)</li>
+                                        <li><a href="http://www.cnblogs.com/qixinbo/tag/Javascript%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/">Javascript事件模型</a>(3)</li>
+                                    </ul>
+                                </div>
+                            </div><div id="sidebar_categories">
+                                <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+                                    <h3 class="catListTitle">随笔分类</h3>
+
+                                    <ul>
+
+                                        <li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/qixinbo/category/1007682.html">C#(16)</a> </li>
+
+                                        <li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/qixinbo/category/1043504.html">Database(6)</a> </li>
+
+                                        <li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/qixinbo/category/1007681.html">Javascript(17)</a> </li>
+
+                                        <li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/qixinbo/category/1012811.html">WebAndHttp(1)</a> </li>
+
+                                        <li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/qixinbo/category/1086024.html">基本功Foundation(19)</a> </li>
+
+                                        <li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/qixinbo/category/1012821.html">杂谈(3)</a> </li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+                                    <h3 class="catListTitle">随笔档案</h3>
+
+                                    <ul>
+
+                                        <li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/qixinbo/archive/2018/06.html">2018年6月 (2)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/qixinbo/archive/2018/05.html">2018年5月 (2)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/qixinbo/archive/2018/04.html">2018年4月 (2)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/qixinbo/archive/2018/03.html">2018年3月 (3)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/qixinbo/archive/2018/02.html">2018年2月 (3)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/qixinbo/archive/2018/01.html">2018年1月 (9)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/qixinbo/archive/2017/12.html">2017年12月 (4)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/qixinbo/archive/2017/11.html">2017年11月 (5)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/qixinbo/archive/2017/10.html">2017年10月 (1)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_9" href="https://www.cnblogs.com/qixinbo/archive/2017/09.html">2017年9月 (3)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_10" href="https://www.cnblogs.com/qixinbo/archive/2017/08.html">2017年8月 (7)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_11" href="https://www.cnblogs.com/qixinbo/archive/2017/07.html">2017年7月 (6)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_12" href="https://www.cnblogs.com/qixinbo/archive/2017/06.html">2017年6月 (10)</a> </li>
+
+                                        <li><a id="CatList_LinkList_1_Link_13" href="https://www.cnblogs.com/qixinbo/archive/2017/05.html">2017年5月 (7)</a> </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div><div id="sidebar_topdiggedposts" class="sidebar-block">
+                                <div id="topdigg_posts_wrap">
+                                    <div class="catListView">
+                                        <h3 class="catListTitle">推荐排行榜</h3>
+                                        <div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/qixinbo/p/6938471.html">1. .NET MVC页面生命周期及传统ASP.NET页面周期(1)</a></li><li><a href="https://www.cnblogs.com/qixinbo/p/7346018.html">2. 页面滑动底部自动加载下一页信息(1)</a></li><li><a href="https://www.cnblogs.com/qixinbo/p/7782314.html">3. Hash表的平均查找长度ASL计算方法(1)</a></li></ul></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">loadBlogSideColumn();</script>
+                    </div>
+
+                </div><!--end: sideBarMain -->
+            </div><!--end: sideBar 侧边栏容器 -->
+            <div class="clear"></div>
+        </div><!--end: main -->
+        <div class="clear"></div>
+        <div id="footer">
+
+            <!--done-->
+            Copyright ©2018 SeedQi
+        </div><!--end: footer -->
+    </div><!--end: home 自定义的最大容器 -->
+
+</body>
+</html>

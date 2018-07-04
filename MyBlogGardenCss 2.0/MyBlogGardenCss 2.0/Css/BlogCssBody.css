@@ -62,6 +62,7 @@
     text-align: center;
     font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
     color: #fff;
+    margin-bottom:10px;
 }
 
 .postTitle a {
@@ -115,6 +116,81 @@
         display:none;
     }
 }
+
+#post_detail {
+    background: rgba(240,238,245,0.9);
+    /*background: rgba(241,239,236,0.8);*/
+    padding: 20px 100px;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+}
+    #post_detail h3 {
+        font-size: 2rem;
+    }
+    #post_detail h4 {
+        font-size: 1.8rem;
+    }
+
+.postBody {
+
+
+}
+
+
+
+
+/*通用里面已经有pre的设置了*/
+.cnblogs_code pre {
+    white-space: pre-wrap;
+    font-family: sans-serif !important;
+}
+
+
+.cnblogs_code span {
+    font-family: sans-serif !important;
+    font-size: 1em !important;
+}
+
+
+pre {
+    overflow: auto;
+}
+
+  
+.cnblogs_code {
+    /* background-color: rgba(152, 147, 147, 0.28); */
+    /* border: 1px solid rgba(255, 251, 251, 0); */
+    border-radius: 4px;
+    color: #000;
+    margin: 5px 0;
+    overflow: auto;
+    padding: 0;
+}
+
+
+    .cnblogs_code div {
+        display: none;
+    }
+
+.cnblogs_code_toolbar a:hover, .cnblogs_code_toolbar a:link, .cnblogs_code_toolbar a:visited, .cnblogs_code_toolbar a:active, .cnblogs_code_toolbar a:link img, .cnblogs_code_toolbar a:visited img {
+    background-color: #e2e1e1 !important;
+    border: medium none !important;
+}
+
+
+.cnblogs_code_toolbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
 
 
 
