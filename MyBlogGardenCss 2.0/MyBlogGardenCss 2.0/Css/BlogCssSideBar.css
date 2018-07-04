@@ -11,9 +11,44 @@
 }
 
 #sideBarMain {
+    font-size: 1.5rem;
 }
+
+
+    #sideBarMain a {
+        color: #3A4145;
+        font-weight:500;
+    }
+
+    #sideBarMain a:hover {
+        font-weight: 700;
+    }
+
+    #sideBarMain ul {
+        
+        padding: 0;
+    }
+
+   
+    #sideBarMain li {
+        list-style-type: none;
+       
+    }
+
+#sidebar_toptags li, #sidebar_postcategory li {
+    margin: 10px 0;
+    background: rgba(240,238,245,0.8);
+    border-radius: 5px;
+    text-align: center;
+    width:80%;
+}
+
 
 #blog-news {
     overflow: visible;
     margin-bottom: 20px
 }
+#sidebar_topdiggedposts, #sidebar_shortcut {
+    display: none;
+}
+

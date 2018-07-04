@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+    <script src="~/Script/jquery-2.2.0.min.js"></script>
+    <script>
+
+
+    </script>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+        }
+        #main {
+            top: 50px;
+            height: 60px;
+            width: 300px;
+            background: #ccc;
+            position: relative;
+        }
+      
+        .child {
+            float: left;
+            width: 100px;
+            height: 40px;
+        }
+
+        .child1 {
+            background: #fcc;
+        }
+
+        .child2 {
+            position: absolute;
+            background: #ccf;
+            float: right;
+            top: 20px;
+            left:200px;
+
+            width: 100px;
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div> 
+        <div id="main">
+            <div class="child child1">child1</div>
+            <div class="child2">child2</div>
+
+        </div>
+    </div>
+</body>
+</html>
