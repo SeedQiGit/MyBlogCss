@@ -1,11 +1,8 @@
 ﻿
 
-.postDesc, .c_b_p_desc_readmore {
-    display: none;
-}
-
 .fixed-body-background {
     background-image: url(../img/short.jpeg);
+    /*background-image: url('http://images.cnblogs.com/cnblogs_com/qixinbo/1012642/o_short.jpg');*/
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +24,7 @@
     float: left;
     overflow: visible;
     text-overflow: ellipsis;
-    width: 70%;
+    width: 72%;
     word-break: break-all
 }
 
@@ -119,45 +116,62 @@
 
 #post_detail {
     background: rgba(240,238,245,0.9);
+    width: 90%;
     /*background: rgba(241,239,236,0.8);*/
-    padding: 20px 100px;
+    padding: 20px 50px;
     margin: 0 auto;
+}
+
+#cnblogs_post_body {
     font-size: 1.8rem;
     line-height: 2.8rem;
 }
-    #post_detail h3 {
-        font-size: 2rem;
-    }
-    #post_detail h4 {
-        font-size: 1.8rem;
-    }
 
-.postBody {
-
-
+.blog_post_info_block {
+    font-family: 'Microsoft Yahei' !important;
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
 }
 
+#author_profile {
+    font-family: 'Microsoft Yahei' !important;
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
+}
+.author_profile_info {
+    font-family: 'Microsoft Yahei' !important;
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
+}
+#post_next_prev {
+    font-family: 'Microsoft Yahei' !important;
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
+}
 
-
+.postDesc {
+    margin-top:10px;
+}
 
 /*通用里面已经有pre的设置了*/
 .cnblogs_code pre {
+    padding: 10px;
     white-space: pre-wrap;
     font-family: sans-serif !important;
+    font-size: 14px !important;
 }
+
 
 
 .cnblogs_code span {
     font-family: sans-serif !important;
-    font-size: 1em !important;
+    font-size: 14px !important;
 }
-
 
 pre {
     overflow: auto;
 }
 
-  
 .cnblogs_code {
     /* background-color: rgba(152, 147, 147, 0.28); */
     /* border: 1px solid rgba(255, 251, 251, 0); */
@@ -167,8 +181,6 @@ pre {
     overflow: auto;
     padding: 0;
 }
-
-
     .cnblogs_code div {
         display: none;
     }
@@ -183,15 +195,7 @@ pre {
     display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.c_b_p_desc_readmore {
+    display: none;
+}
 

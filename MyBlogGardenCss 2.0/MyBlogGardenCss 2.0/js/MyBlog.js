@@ -7,4 +7,9 @@
     //$(".catListTitle").hide();
     $("#lnkBlogLogo").hide();
     $("body").append("<div class='fixed-body-background'></div>");
+    
+    ////judge if it's homepage
+    if ($(".day").length > 0 || $(".entrylistItem").length > 0) {
+        $(".postDesc").hide();
+    } 
 });
