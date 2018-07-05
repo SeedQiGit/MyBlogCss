@@ -93,6 +93,7 @@
     <Content Include="Css\BlogCssBody.css" />
     <Content Include="Css\BlogCssCommon.css" />
     <Content Include="Css\BlogCssHeader.css" />
+    <Content Include="Css\BlogCssModule.css" />
     <Content Include="Css\BlogCssSideBar.css" />
     <Content Include="Css\CodeExampleDark.css" />
     <Content Include="Css\CodeExampleSimple.css" />
@@ -125,6 +126,7 @@
     <Content Include="Views\Home\SimpleContentOrg.cshtml" />
     <Content Include="Views\Home\MainContentOrg.cshtml" />
     <Content Include="Views\Home\CodeContent.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
