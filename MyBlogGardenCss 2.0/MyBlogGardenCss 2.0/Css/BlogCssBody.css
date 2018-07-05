@@ -42,7 +42,9 @@
     padding: 10px;
     margin-bottom: 40px;
     font-size: 1.8rem;
-    line-height: 3.2rem
+    line-height: 3.2rem;
+    /*box-shadow: 0 0 20px 2px #ccc;*/
+    box-shadow: 0 0 10px 2px rgba(240,238,245,0.6);
 }
 
 .day .postTitle {
@@ -76,13 +78,14 @@
     line-height: 2.6rem;
     word-break: break-all;
     word-break: break-word;
-    margin-bottom:15px;
+    margin-bottom:25px;
 }
 
 .dayTitle {
     float: right;
     position: absolute;
-    top:75%;
+    /*top:75%;*/
+    bottom:10px;
     left: 80%;
     padding: 0 2rem;
     display: block;
@@ -158,8 +161,6 @@
     font-family: sans-serif !important;
     font-size: 14px !important;
 }
-
-
 
 .cnblogs_code span {
     font-family: sans-serif !important;
