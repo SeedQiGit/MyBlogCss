@@ -197,3 +197,38 @@ pre {
     display: none;
 }
 
+
+.pager {
+    font-family: 'Microsoft Yahei' !important;
+    font-size: 1.8rem !important;
+    line-height: 2rem !important;
+    color: #fff;
+    user-select: none;
+    text-shadow: 3px 3px 40px #fff;
+    font-weight: 700;
+
+}
+    .pager a {
+        display: inline-block;
+        /*margin: 2px ;*/
+        padding:  6px;
+ 
+        background: rgba(240,238,245,1);
+        border: 1px solid #F0EEF5;
+        font-family: 'Microsoft Yahei' !important;
+        font-size: 1.6rem !important;
+        line-height: 2rem !important;
+        color: rgba(0,0,0,.9);
+        font-weight: 500;
+    }
+        .pager a:hover {
+            background: #1B9AF7;
+            color:#fff;
+            border: 1px solid #F0EEF5;
+        }
+
+
+
+
+
+

@@ -127,6 +127,7 @@
     <Content Include="Views\Home\MainContentOrg.cshtml" />
     <Content Include="Views\Home\CodeContent.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
