@@ -12,4 +12,11 @@
     if ($(".day").length > 0 || $(".entrylistItem").length > 0) {
         $(".postDesc").hide();
     } 
+
+    //加关注
+    $("#p_b_follow").hide();
+    var addFollow = '<div id="jumpA"><a href="javascript:void(0);" style="margin-top:10px;color:#F0EEF5;font-weight:bold;" onclick="follow(\'9aafb01c-3018-e711-845c-ac853d9f53ac\')">+加关注</a></div>';
+    $("#profile_block").append(addFollow);
+    $("#jumpA").children("a").addClass("shake-chunk").css("text-decoration", "none");
+
 });
