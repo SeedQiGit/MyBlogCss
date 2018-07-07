@@ -59,9 +59,64 @@
     display: none
 }
 
+/*增加前面板太丑*/
 #blogTitle {
     display:none;
 }
+
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 32rem;
+    background: transparent;
+    background-size: cover;
+    box-shadow: 0 1px 1px #efefef;
+    z-index: 1
+}
+
+.banner-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    background-image: linear-gradient(to bottom,#fff,#ededed);
+    background-repeat: repeat-x;
+    opacity: .6;
+    z-index: -2
+}
+
+#Header1_HeaderTitle {
+    color: rgba(17,17,17,.8);
+    font-size: 4.4rem;
+    font-weight: 900;
+    line-height: 3.4rem;
+    display: block;
+    text-align: center
+}
+
+
+    #Header1_HeaderTitle:hover {
+        color: rgba(17,17,17,.5);
+        text-shadow: 0 1px 3px #fff
+    }
+
+.home-blog-title {
+    color: rgba(17,17,17,.8);
+    font-size: 4.4rem;
+    font-weight: 900;
+    line-height: 3.4rem;
+    display: block;
+    text-align: center
+}
+
+    .home-blog-title:hover {
+        color: rgba(17,17,17,.5);
+        text-shadow: 0 1px 3px #fff
+    }
+
 
 /*#blogTitle {
     height: 279px;
