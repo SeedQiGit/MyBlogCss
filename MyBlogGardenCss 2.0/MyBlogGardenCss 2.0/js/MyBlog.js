@@ -87,38 +87,39 @@ $(function () {
     }
 });
 
-//window.onscroll = function () {
-//    if ($(".day").length > 0 || $(".entrylistItem").length > 0) {
-//        return;
-//    }
-//    //already scrolled height $(document).scrollTop() is also can do this
+window.onscroll = function () {
+    if ($(".day").length > 0 || $(".entrylistItem").length > 0) {
+        return;
+    }
+    //already scrolled height $(document).scrollTop() is also can do this
+    var nowScrolledHeight = document.documentElement.scrollTop || document.body.scrollTop;
 
-//    var maxCount = $(".navTitle").length - 1;
-//    var maxId = $(".navTitle").eq(maxCount).attr("href");
-//    maxId = maxId.substring(1, maxId.length);
-//    var maxHeight = $("#" + maxId).offset().top;
-//    for (var i = 0; i < $(".navTitle").length; i++) {
-//        var hrefTarget = $(".navTitle").eq(i).attr("href");
-//        hrefTarget = hrefTarget.substring(1, hrefTarget.length);
-//        //get element height
-//        var elementHeight = $("#" + hrefTarget).offset().top;
-//        var elementHeightAdd = elementHeight - 10;
-//        if (elementHeightAdd < nowScrolledHeight) {
-//            continue;
-//        } else {
-//            $(".Active").removeClass("Active");
-//            if (i == 0) {
-//                $(".navTitle").eq(0).addClass("Active");
-//            } else {
-//                $(".navTitle").eq(i - 1).addClass("Active");
-//            }
-//            break;
-//        }
-//    }
-//    if (nowScrolledHeight > (maxHeight - 10)) {
-//        $(".Active").removeClass("Active"); $(".navTitle").eq(maxCount).addClass("Active");
-//    }
-//}
+    var maxCount = $(".navTitle").length - 1;
+    var maxId = $(".navTitle").eq(maxCount).attr("href");
+    maxId = maxId.substring(1, maxId.length);
+    var maxHeight = $("#" + maxId).offset().top;
+    for (var i = 0; i < $(".navTitle").length; i++) {
+        var hrefTarget = $(".navTitle").eq(i).attr("href");
+        hrefTarget = hrefTarget.substring(1, hrefTarget.length);
+        //get element height
+        var elementHeight = $("#" + hrefTarget).offset().top;
+        var elementHeightAdd = elementHeight - 10;
+        if (elementHeightAdd < nowScrolledHeight) {
+            continue;
+        } else {
+            $(".Active").removeClass("Active");
+            if (i == 0) {
+                $(".navTitle").eq(0).addClass("Active");
+            } else {
+                $(".navTitle").eq(i - 1).addClass("Active");
+            }
+            break;
+        }
+    }
+    if (nowScrolledHeight > (maxHeight - 10)) {
+        $(".Active").removeClass("Active"); $(".navTitle").eq(maxCount).addClass("Active");
+    }
+}
 
 function getDraggingDialog(e) {
     var target = e.target;
