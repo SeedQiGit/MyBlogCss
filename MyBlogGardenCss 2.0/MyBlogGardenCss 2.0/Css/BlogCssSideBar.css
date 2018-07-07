@@ -97,8 +97,8 @@
 }
 
 #myImgIconDiv {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
     margin: 0 0 10px 0
 }
@@ -109,5 +109,5 @@
     }
 
         #myImgIconDiv img:hover {
-            transform: scale(1.4);
+            transform: scale(1.3);
         }
