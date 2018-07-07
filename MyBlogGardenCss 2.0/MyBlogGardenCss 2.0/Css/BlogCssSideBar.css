@@ -36,6 +36,7 @@
 .newsItem h3 {
     display:none;
 }
+
 #sidebar_toptags li, #sidebar_postcategory li {
     margin: 10px 0;
     padding:3px 2px;
@@ -43,12 +44,14 @@
     border-radius: 5px;
     text-align: center;
     width: 80%;
+    user-select:none!important;
 }
+
 #sidebar_toptags a, #sidebar_postcategory a {
     letter-spacing: 0.5px;
-    font-size: 1.6rem;
-   
+    font-size: 1.6rem; 
 }
+
     #sidebar_toptags a:hover, #sidebar_postcategory a:hover {
         font-weight: 500;
     }

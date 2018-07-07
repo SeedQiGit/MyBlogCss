@@ -124,9 +124,26 @@
 }
 
 #cnblogs_post_body {
-    font-size: 1.5rem;
-    line-height: 2.2rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
 }
+
+    #cnblogs_post_body h3 {
+        font-size: 2rem!important;
+        line-height: 2.5rem!important;
+        font-weight: bold!important;
+        margin: 10px 0;
+    }
+
+    #cnblogs_post_body h4 {
+        font-size: 1.6rem !important;
+        line-height: 2.5rem !important;
+        font-weight: bold !important;
+        margin: 10px 0;
+    }
+
+
+
 
 .blog_post_info_block {
     font-family: 'Microsoft Yahei' !important;
