@@ -34,7 +34,7 @@
     font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
     margin-bottom: 10px;
 }
-
+ 
     .entrylistPosttitle a {
         color: rgba(0,0,0,.7);
         font-weight: 600;
@@ -103,7 +103,8 @@
     cursor: pointer;
     user-select: none;
     width: 100px;
-    top:200px;
+    top:70px;
+    left:20px;
 }
 
     .box span {
@@ -112,23 +113,25 @@
     }
 
 #box a {
+    margin: 5px;
+    padding:0px 10px 0px 10px;
     width: auto;
     word-break: keep-all;
     white-space: nowrap;
     display: none;
     line-height: 32px;
-    color: #169FE6;
-    padding: 3px;
+    color: #fff ;
     font-size: 16px;
+    background-color: rgba(0,0,0,.5);
 }
 
 .Active {
     color: #fff !important;
-    background-color: #169FE6;
+    background-color: #169FE6!important;
 }
 
 #box a:hover {
-    color: #0b6bf9;
+    background-color: #0b6bf9;
 }
 
 #boxSideA {

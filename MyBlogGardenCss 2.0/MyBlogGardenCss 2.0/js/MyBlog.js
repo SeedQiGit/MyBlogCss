@@ -81,7 +81,6 @@ $(function () {
             var text = $(this).text();
             $("#box").append('<br /><a class="navTitle" href="#chapter' + i + '" title="' + text + '">' + text + '</a>');
         });
-        $("#box").append('<a></a>');
         $("#box").children("a").first().addClass("Active");
         Dragging(getDraggingDialog).enable();
     }
