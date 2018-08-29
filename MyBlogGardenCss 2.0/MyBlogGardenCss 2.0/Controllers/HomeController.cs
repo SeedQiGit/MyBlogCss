@@ -21,7 +21,10 @@ namespace MyBlogGardenCss_2._0.Controllers
         {
             return View();
         }
-
+        public ActionResult TagList()
+        {
+            return View();
+        }
         public ActionResult Page()
         {
             return View();

@@ -145,3 +145,18 @@
     border-radius: 5px;
     user-select: none;
 }
+
+#taglist table td  {
+    padding: 10px 10px;
+    background: rgba(240,238,245,0.8);
+    text-align: center;
+}
+
+    #taglist table td a {
+        color: #3A4145 !important;
+        font-size: 1.8rem;
+    }
+
+        #taglist table td a:hover {
+            text-shadow: 1px 1px 3px #3d3d3d;
+        }
